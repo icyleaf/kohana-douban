@@ -1,0 +1,234 @@
+<?php defined('SYSPATH') or die('No direct script access.');
+
+class Controller_Demo_Douban extends Controller {
+	
+	protected $_base 		= NULL;
+	protected $_config 		= NULL;
+	protected $_douban  	= NULL;
+	
+	public function before()
+	{
+		$this->_config = Kohana::config('douban');
+		if ($this->_config->api_key AND $this->_config->api_secret)
+		{
+			$this->_douban = Douban::instance();
+		}
+		else
+		{
+			throw new Kohana_Exception('豆瓣  API Key 或 Secrect 是空的!');
+		}
+		
+		// base url
+		$this->_base = $this->request->uri;
+	}
+	
+	/**
+	 * Douban Entry
+	 *
+	 * http://www.douban.com/service/apidoc/
+	 */
+	public function action_index()
+	{
+		// get methods
+		$methods = new ArrayIterator(get_class_methods($this));
+		// methods to ignore
+		$ignore = array
+		(
+			'__construct',
+			'__call',
+			'action_index',
+			'action_check',
+			'before',
+			'after'
+		);
+		
+		$apis = array(
+			'people', 'book', 'movie', 'music', 'broadcast',
+			'doumail', 'collection', 'review', 'recommendation'
+			);
+		
+		$output = '<h1>豆瓣 API 演示用例</h1><p>';
+		if ($people = $this->_douban->get_user())
+		{
+			$output .= '你好，'.$people->name.'。你已经通过 OAuth 验证，你可以尝试下面操作：';
+			$ignore[] = 'action_verity_oauth';
+		}
+		else
+		{
+			$output .= '你好，请在执行下面操作前通过豆瓣 OAuth 的'.html('demo_douban/verity_oauth', '验证');
+		}
+		$output .= '</p><hr /><ol>';
+		while ($methods->valid())
+		{
+			$action = $methods->current();
+			if ( ! in_array($action, $ignore))
+			{
+				$action = str_replace('action_', '', $action);
+				$output .= '<li>'.html::anchor($this->_base.'/'.$action, $action).'</li>';
+			}
+			$methods->next();
+		}
+		$output .= '</ol>';
+		$output .= '<hr /><h2>其他API</h2><ol>';
+		foreach ($apis as $api)
+		{
+			$output .= '<li>'.html::anchor('demo_douban_'.$api, $api).'</li>';
+		}
+		$output .= '</ol>';
+		// render
+		$this->request->response = $output;
+	}
+	
+	/**
+	 * Douban OAuth
+	 */
+	public function action_verity_oauth()
+	{
+		$callback_url = url::site('douban_demo/check');
+		if ($auth_url = $this->_douban->verify($callback_url))
+		{
+			$this->request->redirect($auth_url);
+		}
+		else
+		{
+			echo Kohana::debug($this->_douban->errors());
+		}
+	}
+	
+	/**
+	 * Check OAuth Token
+	 */
+	public function action_check()
+	{
+		if ($_GET)
+		{
+			$result = $this->_douban->login();
+			
+			if ($result)
+			{
+				$this->request->redirect('douban_demo');
+			}
+		}
+	}
+	
+	public function action_my_profile()
+	{
+		if ($this->_douban->logged_in())
+		{
+			echo Kohana::debug($this->_douban->people()->get('me'));
+		}
+		else
+		{
+			echo html::anchor('douban_demo/verity_oauth', 'OAuth 验证');
+		}
+	}
+	
+	
+	public function action_my_friends()
+	{
+		if ($this->_douban->logged_in())
+		{
+			echo Kohana::debug($this->_douban->people()->get_friends('me'));
+		}
+		else
+		{
+			echo html::anchor('douban_demo/verity_oauth', 'OAuth 验证');
+		}
+	}
+	
+	public function action_my_contacts()
+	{
+		if ($this->_douban->logged_in())
+		{
+			echo Kohana::debug($this->_douban->people()->get_contacts('me'));
+		}
+		else
+		{
+			echo html::anchor('douban_demo/verity_oauth', 'OAuth 验证');
+		}
+	}
+	
+	public function action_my_broadcasts()
+	{
+		if ($this->_douban->logged_in())
+		{
+			echo Kohana::debug($this->_douban->broadcast()->get_mine('me'));
+		}
+		else
+		{
+			echo html::anchor('douban_demo/verity_oauth', 'OAuth 验证');
+		}
+	}
+	
+	public function action_my_notes()
+	{
+		if ($this->_douban->logged_in())
+		{
+			echo Kohana::debug($this->_douban->note()->get_by_people('me'));
+		}
+		else
+		{
+			echo html::anchor('douban_demo/verity_oauth', 'OAuth 验证');
+		}
+	}
+	
+	public function action_my_collections()
+	{
+		if ($this->_douban->logged_in())
+		{
+			echo Kohana::debug($this->_douban->collection()->get_by_people('me'));
+		}
+		else
+		{
+			echo html::anchor('douban_demo/verity_oauth', 'OAuth 验证');
+		}
+	}
+	
+	public function action_my_recommendations()
+	{
+		if ($this->_douban->logged_in())
+		{
+			echo Kohana::debug($this->_douban->recommendation()->get_by_people('me'));
+		}
+		else
+		{
+			echo html::anchor('douban_demo/verity_oauth', 'OAuth 验证');
+		}
+	}
+	
+	public function action_my_reviews()
+	{
+		if ($this->_douban->logged_in())
+		{
+			echo Kohana::debug($this->_douban->review()->get_by_people('me'));
+		}
+		else
+		{
+			echo html::anchor('douban_demo/verity_oauth', 'OAuth 验证');
+		}
+	}		
+	
+	public function action_logged_in()
+	{
+		$status = 'Status: ';
+		if ($this->_douban->logged_in())
+		{
+			$status .= '已经登录';
+		}
+		else
+		{
+			$status .= '没有登录';
+		}
+		
+		$this->request->response = $status;
+	}
+	
+	public function action_loggout()
+	{
+		$this->_douban->logout();
+		
+		$this->request->response = '成功退出';
+	}
+
+}
+
