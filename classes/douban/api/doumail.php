@@ -218,6 +218,10 @@ class Douban_API_Doumail extends Douban_Core {
 			// search
 			$result->index = $doumails['opensearch:startIndex']['$t'];
 			$result->max = $doumails['opensearch:itemsPerPage']['$t'];
+			if (isset($doumails['opensearch:totalResults']))
+			{
+				$result->total = $doumails['opensearch:totalResults']['$t'];
+			}
 			if ($doumails['entry'] > 0)
 			{
 				// doumails
