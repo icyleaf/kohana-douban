@@ -143,7 +143,7 @@ class Douban_API_Book extends Douban_Core {
 		// category
 		$result->category = substr($book['category']['@term'], strlen(Douban_Core::CATEGORY_URL));
 		// authors
-		if ( isset($book['author']) )
+		if (isset($book['author']))
 		{
 			foreach ($book['author'] as $author)
 			{
@@ -166,7 +166,7 @@ class Douban_API_Book extends Douban_Core {
 			$result->link['image'] = Douban_Core::DEFAULT_BOOK_IMAGE_URL;
 		}
 		// rating
-		if ( isset($book['gd:rating']) )
+		if (isset($book['gd:rating']))
 		{
 			foreach ($book['gd:rating'] as $key => $value)
 			{
@@ -174,7 +174,7 @@ class Douban_API_Book extends Douban_Core {
 			}
 		}
 		// tags
-		if ( isset($book['db:tag']) )
+		if (isset($book['db:tag']))
 		{
 			foreach ($book['db:tag'] as $tag)
 			{

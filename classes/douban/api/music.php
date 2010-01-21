@@ -121,7 +121,7 @@ class Douban_API_Music extends Douban_Core {
 		// category
 		$result->category = substr($music['category']['@term'], strlen(Douban_Core::CATEGORY_URL));
 		// authors
-		if ( isset($music['author']) )
+		if (isset($music['author']))
 		{
 			foreach ($music['author'] as $author)
 			{
@@ -129,7 +129,7 @@ class Douban_API_Music extends Douban_Core {
 			}
 		}
 		// attribute
-		foreach ($music['db:attribute'] as $att)
+        foreach ($music['db:attribute'] as $att)
 		{
 			$result->attribute[$att['@name']] = $att['$t'];
 		}
@@ -144,7 +144,7 @@ class Douban_API_Music extends Douban_Core {
 			$result->link['image'] = Douban_Core::DEFAULT_MUSIC_IMAGE_URL;
 		}
 		// rating
-		if ( isset($music['gd:rating']) )
+		if (isset($music['gd:rating']))
 		{
 			foreach ($music['gd:rating'] as $key => $value)
 			{
@@ -152,7 +152,7 @@ class Douban_API_Music extends Douban_Core {
 			}
 		}
 		// tags
-		if ( isset($music['db:tag']) )
+		if (isset($music['db:tag']))
 		{
 			foreach ($music['db:tag'] as $tag)
 			{
