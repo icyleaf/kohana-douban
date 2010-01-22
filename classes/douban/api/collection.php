@@ -221,12 +221,35 @@ class Douban_API_Collection extends Douban_Core {
 		$result->id = substr($collection['id']['$t'], strlen(Douban_Core::COLLECTION_URL));
 		// title
 		$result->title = $collection['title']['$t'];
+        // author
+        $result->author = Douban_API_People::format($collection['author']);
 		// status
 		$result->status = $collection['db:status']['$t'];
 		// subject
 		$category = substr($collection['db:subject']['category']['@term'], strlen(Douban_Core::CATEGORY_URL));
-		call_user_func(array('Douban_API_'.ucfirst($category), 'format'), $collection['db:subject']);
-		// updated
+		$result->subject = call_user_func(array('Douban_API_'.ucfirst($category), 'format'), $collection['db:subject']);
+		// summary
+        if (isset($collection['gd:rating']))
+        {
+            $result->summary = $collection['summary']['$t'];
+        }
+        // rating
+        if (isset($collection['summary']))
+        {
+            foreach ($collection['gd:rating'] as $key => $value)
+            {
+                $result->rating[substr($key, 1)] = $value;
+            }
+        }
+        // tags
+        if (isset($collection['db:tag']))
+        {
+            foreach ($collection['db:tag'] as $tag)
+            {
+                $result->tags[] = $tag['@name'];
+            }
+        }
+        // updated
 		$result->updated = strtotime($collection['updated']['$t']);
 		
 		unset($category, $class);
