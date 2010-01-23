@@ -232,12 +232,12 @@ class Douban_API_Collection extends Douban_Core {
 		$category = substr($collection['db:subject']['category']['@term'], strlen(Douban_Core::CATEGORY_URL));
 		$result->subject = call_user_func(array('Douban_API_'.ucfirst($category), 'format'), $collection['db:subject']);
 		// summary
-        if (isset($collection['gd:rating']))
+        if (isset($collection['summary']))
         {
             $result->summary = $collection['summary']['$t'];
         }
         // rating
-        if (isset($collection['summary']))
+        if (isset($collection['gd:rating']))
         {
             foreach ($collection['gd:rating'] as $key => $value)
             {
