@@ -222,7 +222,10 @@ class Douban_API_Collection extends Douban_Core {
 		// title
 		$result->title = $collection['title']['$t'];
         // author
-        $result->author = Douban_API_People::format($collection['author']);
+        if (isset($collection['author']))
+        {
+            $result->author = Douban_API_People::format($collection['author']);
+        }
 		// status
 		$result->status = $collection['db:status']['$t'];
 		// subject
