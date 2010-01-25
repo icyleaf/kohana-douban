@@ -295,12 +295,9 @@ class Douban_Core {
 			}
 			else
 			{
+                // Create the Douban API instance
 				$interface = 'Douban_API_' . ucfirst($name);
-				if ( ! Kohana::auto_load($interface))
-				{
-					throw new Exception('Class \''.$interface.'\' not found');
-				}
-				
+
 				// Load douban api interface
 				return new $interface();
 			}
