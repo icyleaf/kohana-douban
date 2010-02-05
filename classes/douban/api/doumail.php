@@ -259,17 +259,21 @@ class Douban_API_Doumail extends Douban_Core {
 		{
 			$result->author = Douban_API_People::format($doumail['author']);
 		}
-		// mail type
-		// TODO: missing host doumail.
-		if ( ! empty($result->author->id) AND $result->author->name == '����ϵͳ�ʼ�')
+        // type
+		if (isset($result->author->id))
 		{
-			// normal doumail
-			$result->type = 'system';
+            if ( ! $result->author->id)
+            {
+               $result->type = 'system';
+            }
+            else
+            {
+                $result->type = 'normal';
+            }
 		}
 		else
 		{
-			// system doumail
-			$result->type = 'normal';
+			$result->type = 'host';
 		}
 		//receiver
 		if (isset($doumail['@name']) AND $doumail['@name'] == 'receiver')
