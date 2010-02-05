@@ -247,6 +247,7 @@ class Douban_API_Doumail extends Douban_Core {
 	 */
 	private function _format($doumail)
 	{
+        //echo Kohana::debug($doumail);
 		$result = new stdClass;
 		// id
 		$result->id = substr($doumail['id']['$t'], strlen(Douban_Core::DOUMAIL_URL));
@@ -258,7 +259,14 @@ class Douban_API_Doumail extends Douban_Core {
 		if (isset($doumail['author']))
 		{
 			$result->author = Douban_API_People::format($doumail['author']);
+            $result->receiver = FALSE;
 		}
+        else if (isset($doumail['db:entity']))
+        {
+            $result->author = Douban_API_People::format($doumail['db:entity']);
+            $result->receiver = TRUE;
+        }
+
         // type
 		if (isset($result->author->id))
 		{
@@ -275,21 +283,27 @@ class Douban_API_Doumail extends Douban_Core {
 		{
 			$result->type = 'host';
 		}
-		//receiver
-		if (isset($doumail['@name']) AND $doumail['@name'] == 'receiver')
-		{
-			$result->receiver = TRUE;
-		}
-		else
-		{
-			$result->receiver = FALSE;
-		}
 		// attribute
 		if (isset($doumail['db:attribute']))
 		{
 			foreach ($doumail['db:attribute'] as $att)
 			{
-				$result->attribute[$att['@name']] = $att['$t'];
+                if ($att['@name'] == 'unread')
+                {
+                    if (strtolower($att['$t']) == 'true')
+                    {
+                        $result->attribute[$att['@name']] = TRUE;
+                    }
+                    else
+                    {
+                        $result->attribute[$att['@name']] = FALSE;
+                    }
+                }
+                else
+                {
+                    $result->attribute[$att['@name']] = $att['$t'];
+                }
+				
 			}
 		}
 		// link
