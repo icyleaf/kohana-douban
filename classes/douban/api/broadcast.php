@@ -299,7 +299,6 @@ class Douban_API_Broadcast extends Douban_Core {
 			$comments = $result->to_json();
 
 			$result = new stdClass;
-			
 			$result->title = $comments['title']['$t'];
 			// author
 			if (isset($comments['author']))
@@ -309,6 +308,7 @@ class Douban_API_Broadcast extends Douban_Core {
 			// search
 			$result->index = $comments['opensearch:startIndex']['$t'];
 			$result->max = $comments['opensearch:itemsPerPage']['$t'];
+			$result->total = $comments['opensearch:totalResults']['$t'];
 			if (count($comments['entry']) > 0)
 			{
 				// comments
@@ -343,7 +343,7 @@ class Douban_API_Broadcast extends Douban_Core {
 		// content
 		$result->content = $comment['content']['$t'];
 		// published
-		$result->published = strtolower($comment['published']['$t']);
+		$result->published = strtotime($comment['published']['$t']);
 		
 		return $result;
 	}
