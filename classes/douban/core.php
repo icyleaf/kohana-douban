@@ -11,7 +11,7 @@
 class Douban_Core {
 	
 	// Release version
-	const VERSION 						= '1.0';
+	const VERSION 						= '1.0.1';
 	
 	// Douban OAuth URL
 	const SERVER_URL    				= 'http://api.douban.com/';
@@ -295,12 +295,9 @@ class Douban_Core {
 			}
 			else
 			{
+                // Create the Douban API instance
 				$interface = 'Douban_API_' . ucfirst($name);
-				if ( ! Kohana::auto_load($interface))
-				{
-					throw new Exception('Class \''.$interface.'\' not found');
-				}
-				
+
 				// Load douban api interface
 				return new $interface();
 			}

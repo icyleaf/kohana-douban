@@ -143,7 +143,7 @@ class Douban_API_Movie extends Douban_Core {
 		// category
 		$result->category = substr($movie['category']['@term'], strlen(Douban_Core::CATEGORY_URL));
 		// authors
-		if ( isset($movie['author']) )
+		if (isset($movie['author']))
 		{
 			foreach ($movie['author'] as $author)
 			{
@@ -153,9 +153,25 @@ class Douban_API_Movie extends Douban_Core {
 		// attribute
 		foreach ($movie['db:attribute'] as $att)
 		{
-			$result->attribute[$att['@name']] = $att['$t'];
+            if (isset($result->attribute[$att['@name']]))
+            {
+                if (is_array($result->attribute[$att['@name']]))
+                {
+                    $result->attribute[$att['@name']][] = $att['$t'];
+                }
+                else
+                {
+                    $temp = $result->attribute[$att['@name']];
+                    $result->attribute[$att['@name']] = array($temp, $att['$t']);
+                }
+            }
+            else
+            {
+                $result->attribute[$att['@name']] = $att['$t'];
+            }
 		}
-		if ( isset($result->attribute['imdb']) )
+        
+		if (isset($result->attribute['imdb']))
 		{
 			$imdb = $result->attribute['imdb'];
 			$imdb_url = 'http://www.imdb.com/title/';
@@ -174,7 +190,7 @@ class Douban_API_Movie extends Douban_Core {
 			$result->link['image'] = Douban_Core::DEFAULT_MUSIC_IMAGE_URL;
 		}
 		// rating
-		if ( isset($movie['gd:rating']) )
+		if (isset($movie['gd:rating']))
 		{
 			foreach ($movie['gd:rating'] as $key => $value)
 			{
@@ -182,11 +198,11 @@ class Douban_API_Movie extends Douban_Core {
 			}
 		}
 		// tags
-		if ( isset($movie['db:tag']) )
+		if (isset($movie['db:tag']))
 		{
 			foreach ($movie['db:tag'] as $tag)
 			{
-				$result->tags[$tag['@name']] = $tag['@count'];
+				$result->tags[$tag['@name']][] = $tag['@count'];
 			}
 		}
 		// cummary
@@ -209,7 +225,7 @@ class Douban_API_Movie extends Douban_Core {
 		if ($this->alt == 'json' AND $this->format AND $result->status() == 200)
 		{
 			$movies = $result->to_json();
-
+            
 			$result = new stdClass;
 			$result->title = $movies['title']['$t'];
 			// search
