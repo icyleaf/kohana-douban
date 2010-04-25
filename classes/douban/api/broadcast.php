@@ -240,6 +240,7 @@ class Douban_API_Broadcast extends Douban_Core {
 	 */
 	private function _format_broadcast($broadcast)
 	{
+//		echo Kohana::debug($broadcast);
 		$result = new stdClass;
 		// id
 		$result->id = substr($broadcast['id']['$t'], strlen(Douban_Core::MINIBLOG_URL));
@@ -262,7 +263,7 @@ class Douban_API_Broadcast extends Douban_Core {
 		if (isset($broadcast['category']))
 		{
 			$category_url = Douban_Core::CATEGORY_URL.'miniblog.';
-			$result->category = substr($broadcast['category'][0]['@term'], strlen($category_url));
+			$result->category = substr($broadcast['category']['@term'], strlen($category_url));
 		}
 		// attributes
 		if (isset($broadcast['db:attribute']))
