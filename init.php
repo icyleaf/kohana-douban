@@ -6,4 +6,4 @@
  * openSearch:index, openSearch:max, openSearch:total is undefined index
  * in formated json array.
  */
-error_reporting(E_ALL ^ E_NOTICE);
+error_reporting(E_ALL & ~E_NOTICE);
