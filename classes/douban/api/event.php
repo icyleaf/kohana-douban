@@ -442,7 +442,6 @@ class Douban_API_Event extends Douban_Core {
 		if ($this->alt == 'json' AND $this->format AND $result->status() == 200)
 		{
 			$events = $result->to_json();
-			
 			$result = new stdClass;
 			$result->title = $events['title']['$t'];
 			// author
@@ -475,6 +474,7 @@ class Douban_API_Event extends Douban_Core {
 	 */
 	private function _format($event)
 	{
+		echo Kohana::debug($event);
 		$result = new stdClass;
 		// id
 		$result->id = substr($event['id']['$t'], strlen(Douban_Core::EVENT_URL));
@@ -497,6 +497,16 @@ class Douban_API_Event extends Douban_Core {
 		);
 		// where
 		$result->address = $event['gd:where']['@valueString'];
+		// geo
+		if (isset($event['georss:point']))
+		{
+			list($lat, $lon) = explode(' ', $event['georss:point']['$t']);
+			$result->geo = array
+			(
+				'lat'	=> $lat,
+				'lon'	=> $lon,
+			);
+		}
 		// author
 		if (isset($event['author']))
 		{
