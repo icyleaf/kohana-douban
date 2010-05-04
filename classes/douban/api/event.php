@@ -474,7 +474,6 @@ class Douban_API_Event extends Douban_Core {
 	 */
 	private function _format($event)
 	{
-		echo Kohana::debug($event);
 		$result = new stdClass;
 		// id
 		$result->id = substr($event['id']['$t'], strlen(Douban_Core::EVENT_URL));
