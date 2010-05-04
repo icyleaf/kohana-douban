@@ -11,7 +11,7 @@
 class Douban_Core {
 	
 	// Release version
-	const VERSION 						= '1.0.1';
+	const VERSION 						= '1.0.3';
 	
 	// Douban OAuth URL
 	const SERVER_URL    				= 'http://api.douban.com/';
