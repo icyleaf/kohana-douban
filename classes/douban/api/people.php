@@ -207,7 +207,12 @@ class Douban_API_People extends Douban_Core {
 				'id' 	=> $people['db:location']['@id'],
 				'title' => $people['db:location']['$t'],
 			);
-		} 
+		}
+		// signature
+		if (isset($people['db:signature']))
+		{
+			$result->signature = $people['db:signature']['$t'];
+		}
 		// links
 		if (isset($people['link']))
 		{
