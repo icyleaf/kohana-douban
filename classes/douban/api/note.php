@@ -3,9 +3,9 @@
  * Douban Note API
  *
  * @package		douban
- * @author		icyleaf
+ * @author		icyleaf <icyleaf.cn@gmail.com>
  * @link 		http://icyleaf.com
- * @copyright	(c) 2009 icyleaf <icyleaf.cn@gmail.com>
+ * @copyright	(c) 2009-2010 icyleaf
  * @license		http://www.apache.org/licenses/LICENSE-2.0
  */
 class Douban_API_Note extends Douban_Core {
@@ -228,8 +228,8 @@ class Douban_API_Note extends Douban_Core {
 				$result->link[$link['@rel']] = $link['@href'];
 			}
 			// search
-			$result->index = $notes['opensearch:startIndex']['$t'];
-			$result->max = $notes['opensearch:itemsPerPage']['$t'];
+			$result->index = $notes['openSearch:startIndex']['$t'];
+			$result->max = $notes['openSearch:itemsPerPage']['$t'];
 			if ($notes['entry'] > 0)
 			{
 				// notes

@@ -3,9 +3,9 @@
  * Douban Recommendation API
  *
  * @package		douban
- * @author		icyleaf
+ * @author		icyleaf <icyleaf.cn@gmail.com>
  * @link 		http://icyleaf.com
- * @copyright	(c) 2009 icyleaf <icyleaf.cn@gmail.com>
+ * @copyright	(c) 2009-2010 icyleaf
  * @license		http://www.apache.org/licenses/LICENSE-2.0
  */
 class Douban_API_Recommendation extends Douban_Core {
@@ -207,9 +207,9 @@ class Douban_API_Recommendation extends Douban_Core {
 			// author
 			$result->author = Douban_API_People::format($comments['author']);
 			// search
-			$result->index = $comments['opensearch:startIndex']['$t'];
-			$result->max = $comments['opensearch:itemsPerPage']['$t'];
-			$result->total = $comments['opensearch:totalResults']['$t'];
+			$result->index = $comments['openSearch:startIndex']['$t'];
+			$result->max = $comments['openSearch:itemsPerPage']['$t'];
+			$result->total = $comments['openSearch:totalResults']['$t'];
 			if ($result->total > 0)
 			{
 				// recommendations
@@ -246,8 +246,8 @@ class Douban_API_Recommendation extends Douban_Core {
 				$result->author = Douban_API_People::format($recommendations['author']);
 			}
 			// search
-			$result->index = $recommendations['opensearch:startIndex']['$t'];
-			$result->max = $recommendations['opensearch:itemsPerPage']['$t'];
+			$result->index = $recommendations['openSearch:startIndex']['$t'];
+			$result->max = $recommendations['openSearch:itemsPerPage']['$t'];
 			if (count($recommendations['entry']) > 0)
 			{
 				// recommendations

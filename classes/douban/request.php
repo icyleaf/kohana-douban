@@ -3,9 +3,9 @@
  * Douban_Request
  *
  * @package		douban
- * @author		icyleaf
+ * @author		icyleaf <icyleaf.cn@gmail.com>
  * @link 		http://icyleaf.com
- * @copyright	(c) 2009 icyleaf <icyleaf.cn@gmail.com>
+ * @copyright	(c) 2009-2010 icyleaf
  * @license		http://www.apache.org/licenses/LICENSE-2.0
  *
  * Base on Curl Library by Matt Wells (www.ninjapenguin.co.uk)

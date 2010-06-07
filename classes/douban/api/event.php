@@ -3,9 +3,9 @@
  * Douban Event API
  *
  * @package		douban
- * @author		icyleaf
+ * @author		icyleaf <icyleaf.cn@gmail.com>
  * @link 		http://icyleaf.com
- * @copyright	(c) 2009 icyleaf <icyleaf.cn@gmail.com>
+ * @copyright	(c) 2009-2010 icyleaf
  * @license		http://www.apache.org/licenses/LICENSE-2.0
  */
 class Douban_API_Event extends Douban_Core {
@@ -25,9 +25,9 @@ class Douban_API_Event extends Douban_Core {
 		);
 		$result = $this->_client->get($url, $post_data);
 
-		if ($this->alt == 'json' AND $this->format AND $result->status() == 200)
+		if ($this->alt == 'json' AND Douban_API_Event::format AND $result->status() == 200)
 		{
-			$result = $this->_format($result->to_json());
+			$result = Douban_API_Event::format($result->to_json());
 		}
 		
 		return $result;
@@ -95,7 +95,7 @@ class Douban_API_Event extends Douban_Core {
 		);
 		$result = $this->_client->get($url, $post_data);
 
-		if ($this->alt == 'json' AND $this->format AND $result->status() == 200)
+		if ($this->alt == 'json' AND Douban_API_Event::format AND $result->status() == 200)
 		{
 			$result = Douban_API_People::get_peoples($result->to_json());
 		}
@@ -123,12 +123,17 @@ class Douban_API_Event extends Douban_Core {
 		
 		$result = $this->_client->get($url, $post_data);
 
-		if ($this->alt == 'json' AND $this->format AND $result->status() == 200)
+		if ($this->alt == 'json' AND Douban_API_Event::format AND $result->status() == 200)
 		{
 			$result = Douban_API_People::get_peoples($result->to_json());
 		}
 		
 		return $result;
+	}
+
+	public function album($album_id)
+	{
+//		http://api.douban.com/album/27752561
 	}
 	
 	/**
@@ -142,7 +147,7 @@ class Douban_API_Event extends Douban_Core {
 		$url = Douban_Core::EVENT_URL.$event_id.'/participants';
 		$result = $this->_client->post($url);
 		
-		if ($this->format)
+		if (Douban_API_Event::format)
 		{
 			if ($result->status() == 201)
 			{
@@ -170,7 +175,7 @@ class Douban_API_Event extends Douban_Core {
 		$url = Douban_Core::EVENT_URL.$event_id.'/wishers';
 		$result = $this->_client->post($url);
 
-		if ($this->format)
+		if (Douban_API_Event::format)
 		{
 			if ($result->status() == 201)
 			{
@@ -201,7 +206,7 @@ class Douban_API_Event extends Douban_Core {
 			$url = Douban_Core::EVENT_URL.$event_id.'/'.$status;
 			$result = $this->_client->delete($url);
 	
-			if ($this->format)
+			if (Douban_API_Event::format)
 			{
 				if ($result->status() == 200)
 				{
@@ -311,7 +316,7 @@ class Douban_API_Event extends Douban_Core {
 			'</entry>';
 		$result = $this->_client->post($url, $post_data, $header);
 		
-		if ($this->format)
+		if (Douban_API_Event::format)
 		{
 			if ($result->status() == 201)
 			{
@@ -376,7 +381,7 @@ class Douban_API_Event extends Douban_Core {
 			'</entry>';
 		$result = $this->_client->put($url, $post_data, $header);
 
-		if ($this->format)
+		if (Douban_API_Event::format)
 		{
 			if ($result->status() == 200)
 			{
@@ -411,7 +416,7 @@ class Douban_API_Event extends Douban_Core {
 			'</entry>';
 		$result = $this->_client->delete($url, $post_data, $header);
 		
-		if ($this->format)
+		if (Douban_API_Event::format)
 		{
 			if ($result->status() == 200)
 			{
@@ -439,7 +444,7 @@ class Douban_API_Event extends Douban_Core {
 	{
 		$result = $this->_client->get($url, $post_data);
 		
-		if ($this->alt == 'json' AND $this->format AND $result->status() == 200)
+		if ($this->alt == 'json' AND Douban_API_Event::format AND $result->status() == 200)
 		{
 			$events = $result->to_json();
 			$result = new stdClass;
@@ -450,15 +455,15 @@ class Douban_API_Event extends Douban_Core {
 				$result->author = Douban_API_People::format($events['author']);
 			}
 			// search
-			$result->index = $events['opensearch:startIndex']['$t'];
-			$result->max = $events['opensearch:itemsPerPage']['$t'];
-			$result->total = $events['opensearch:totalResults']['$t'];
+			$result->index = $events['openSearch:startIndex']['$t'];
+			$result->max = $events['openSearch:itemsPerPage']['$t'];
+			$result->total = $events['openSearch:totalResults']['$t'];
 			if ($result->total > 0)
 			{
 				// events
 				foreach ($events['entry'] as $event)
 				{
-					$result->entry[] = $this->_format($event);
+					$result->entry[] = Douban_API_Event::format($event);
 				}
 			}
 		}
@@ -472,30 +477,58 @@ class Douban_API_Event extends Douban_Core {
 	 * @param array $event 
 	 * @return object
 	 */
-	private function _format($event)
+	public static function format($event)
 	{
+		echo Kohana::debug($event);
 		$result = new stdClass;
 		// id
-		$result->id = substr($event['id']['$t'], strlen(Douban_Core::EVENT_URL));
+		if (isset($event['id']))
+		{
+			$result->id = substr($event['id']['$t'], strlen(Douban_Core::EVENT_URL));
+		}
+		else if (isset($event['uri']))
+		{
+			$result->id = substr($event['uri']['$t'], strlen(Douban_Core::EVENT_URL));
+		}
 		// title
-		$result->title = $event['title']['$t'];
+		if (isset($event['title']))
+		{
+			$result->title = $event['title']['$t'];
+		}
+		else if (isset($event['name']))
+		{
+			$result->name = $event['name']['$t'];
+		}
 		// category
-		$category_url = Douban_Core::CATEGORY_URL.'event.';
-		$result->category = substr($event['category']['@term'], strlen($category_url));
+		if (isset($event['category']))
+		{
+			$category_url = Douban_Core::CATEGORY_URL . 'event.';
+			$result->category = substr($event['category']['@term'], strlen($category_url));
+			unset($category_url);
+		}
 		// date
-		$result->date = array
-		(
-			'start'	=> strtotime($event['gd:when']['@endTime']),
-			'end'	=> strtotime($event['gd:when']['@startTime']),
-		);
+		if (isset($event['gd:when']))
+		{
+			$result->date = array
+			(
+				'start' => strtotime($event['gd:when']['@endTime']),
+				'end' => strtotime($event['gd:when']['@startTime']),
+			);
+		}
 		// location
-		$result->location = array
-		(
-			'id'	=> $event['db:location']['@id'],
-			'name'	=> $event['db:location']['$t'],
-		);
+		if (isset($event['db:location']))
+		{
+			$result->location = array
+			(
+				'id'	=> $event['db:location']['@id'],
+				'name'	=> $event['db:location']['$t'],
+			);
+		}
 		// where
-		$result->address = $event['gd:where']['@valueString'];
+		if (isset($event['gd:where']))
+		{
+			$result->address = $event['gd:where']['@valueString'];
+		}
 		// geo
 		if (isset($event['georss:point']))
 		{
@@ -522,16 +555,23 @@ class Douban_API_Event extends Douban_Core {
 			$result->link['image'] = Douban_Core::DEFAULT_EVENT_IMAGE_URL;
 		}
 		// summary
-		$result->summary = $event['summary'][0]['$t'];
-		// content
-		$result->content = $event['content'][0]['$t'];
-		// attributes
-		foreach ($event['db:attribute'] as $att)
+		if (isset($event['summary']))
 		{
-			$result->attribute[$att['@name']] = $att['$t'];
+			$result->summary = $event['summary'][0]['$t'];
 		}
-		
-		unset($category_url);
+		// content
+		if (isset($event['content']))
+		{
+			$result->content = $event['content']['$t'];
+		}
+		// attributes
+		if (isset($event['db:attribute']))
+		{
+			foreach ($event['db:attribute'] as $att)
+			{
+				$result->attribute[$att['@name']] = $att['$t'];
+			}
+		}
 		
 		return $result;
 	}

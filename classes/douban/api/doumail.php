@@ -3,9 +3,9 @@
  * Douban Doumail API
  *
  * @package		douban
- * @author		icyleaf
+ * @author		icyleaf <icyleaf.cn@gmail.com>
  * @link 		http://icyleaf.com
- * @copyright	(c) 2009 icyleaf <icyleaf.cn@gmail.com>
+ * @copyright	(c) 2009-2010 icyleaf
  * @license		http://www.apache.org/licenses/LICENSE-2.0
  */
 class Douban_API_Doumail extends Douban_Core {
@@ -216,11 +216,11 @@ class Douban_API_Doumail extends Douban_Core {
 			$result = new stdClass;
 			$result->title = $doumails['title']['$t'];
 			// search
-			$result->index = $doumails['opensearch:startIndex']['$t'];
-			$result->max = $doumails['opensearch:itemsPerPage']['$t'];
-			if (isset($doumails['opensearch:totalResults']))
+			$result->index = $doumails['openSearch:startIndex']['$t'];
+			$result->max = $doumails['openSearch:itemsPerPage']['$t'];
+			if (isset($doumails['openSearch:totalResults']))
 			{
-				$result->total = $doumails['opensearch:totalResults']['$t'];
+				$result->total = $doumails['openSearch:totalResults']['$t'];
 			}
 			if ($doumails['entry'] > 0)
 			{

@@ -3,9 +3,9 @@
  * Douban API Entry library
  *
  * @package		douban
- * @author		icyleaf
+ * @author		icyleaf <icyleaf.cn@gmail.com>
  * @link 		http://icyleaf.com
- * @copyright	(c) 2009 icyleaf <icyleaf.cn@gmail.com>
+ * @copyright	(c) 2009-2010 icyleaf
  * @license		http://www.apache.org/licenses/LICENSE-2.0
  */
 class Douban_Core {
@@ -31,6 +31,7 @@ class Douban_Core {
 	const NOTE_URL		 				= 'http://api.douban.com/note/';
 	const REVIEW_URL					= 'http://api.douban.com/review/';
 	const RECOMMENDATION_URL			= 'http://api.douban.com/recommendation/';
+	const ALBUM_URL						= 'http://api.douban.com/album/';
 	// Douban Category URL
 	const CATEGORY_URL					= 'http://www.douban.com/2007#';
 	// The Default Image URL

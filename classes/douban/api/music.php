@@ -9,9 +9,9 @@
  * collection	(http://api.douban.com/collection/{id})
  *
  * @package		douban
- * @author		icyleaf
+ * @author		icyleaf <icyleaf.cn@gmail.com>
  * @link 		http://icyleaf.com
- * @copyright	(c) 2009 icyleaf <icyleaf.cn@gmail.com>
+ * @copyright	(c) 2009-2010 icyleaf
  * @license		http://www.apache.org/licenses/LICENSE-2.0
  */
 class Douban_API_Music extends Douban_Core {
@@ -62,9 +62,9 @@ class Douban_API_Music extends Douban_Core {
 			$result = new stdClass;
 			$result->title = $music['title']['$t'];
 			// search
-			$result->index = $music['opensearch:startIndex']['$t'];
-			$result->max = $music['opensearch:itemsPerPage']['$t'];
-			$result->total = $music['opensearch:totalResults']['$t'];
+			$result->index = $music['openSearch:startIndex']['$t'];
+			$result->max = $music['openSearch:itemsPerPage']['$t'];
+			$result->total = $music['openSearch:totalResults']['$t'];
 			if ($result->total > 0)
 			{
 				// tags

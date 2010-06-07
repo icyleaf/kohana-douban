@@ -3,9 +3,9 @@
  * Douban Broadcast API
  *
  * @package		douban
- * @author		icyleaf
+ * @author		icyleaf <icyleaf.cn@gmail.com>
  * @link 		http://icyleaf.com
- * @copyright	(c) 2009 icyleaf <icyleaf.cn@gmail.com>
+ * @copyright	(c) 2009-2010 icyleaf
  * @license		http://www.apache.org/licenses/LICENSE-2.0
  */
 class Douban_API_Broadcast extends Douban_Core {
@@ -213,8 +213,8 @@ class Douban_API_Broadcast extends Douban_Core {
 				$result->author = Douban_API_People::format($broadcasts['author']);
 			}
 			// search
-			$result->index = $broadcasts['opensearch:startIndex']['$t'];
-			$result->max = $broadcasts['opensearch:itemsPerPage']['$t'];
+			$result->index = $broadcasts['openSearch:startIndex']['$t'];
+			$result->max = $broadcasts['openSearch:itemsPerPage']['$t'];
 			if (count($broadcasts['entry']) > 0)
 			{
 				// broadcasts
@@ -307,9 +307,9 @@ class Douban_API_Broadcast extends Douban_Core {
 				$result->author = Douban_API_People::format($comments['author']);
 			}
 			// search
-			$result->index = $comments['opensearch:startIndex']['$t'];
-			$result->max = $comments['opensearch:itemsPerPage']['$t'];
-			$result->total = $comments['opensearch:totalResults']['$t'];
+			$result->index = $comments['openSearch:startIndex']['$t'];
+			$result->max = $comments['openSearch:itemsPerPage']['$t'];
+			$result->total = $comments['openSearch:totalResults']['$t'];
 			if (count($comments['entry']) > 0)
 			{
 				// comments

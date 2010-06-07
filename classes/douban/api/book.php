@@ -9,7 +9,7 @@
  * collection	(http://api.douban.com/collection/{id})
  *
  * @package		douban
- * @author		icyleaf
+ * @author		icyleaf <icyleaf.cn@gmail.com>
  * @link 		http://icyleaf.com
  * @copyright	(c) 2009 icyleaf <icyleaf.cn@gmail.com>
  * @license		http://www.apache.org/licenses/LICENSE-2.0
@@ -84,9 +84,9 @@ class Douban_API_Book extends Douban_Core {
 			$result = new stdClass;
 			$result->title = $book['title']['$t'];
 			// search
-			$result->index = $book['opensearch:startIndex']['$t'];
-			$result->max = $book['opensearch:itemsPerPage']['$t'];
-			$result->total = $book['opensearch:totalResults']['$t'];
+			$result->index = $book['openSearch:startIndex']['$t'];
+			$result->max = $book['openSearch:itemsPerPage']['$t'];
+			$result->total = $book['openSearch:totalResults']['$t'];
 			if ($result->total > 0)
 			{
 				// tags
@@ -205,9 +205,9 @@ class Douban_API_Book extends Douban_Core {
 			$result = new stdClass;
 			$result->title = $books['title']['$t'];
 			// search
-			$result->index = $books['opensearch:startIndex']['$t'];
-			$result->max = $books['opensearch:itemsPerPage']['$t'];
-			$result->total = $books['opensearch:totalResults']['$t'];
+			$result->index = $books['openSearch:startIndex']['$t'];
+			$result->max = $books['openSearch:itemsPerPage']['$t'];
+			$result->total = $books['openSearch:totalResults']['$t'];
 			if ($result->total > 0)
 			{
 				// books

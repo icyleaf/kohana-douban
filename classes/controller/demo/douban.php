@@ -44,7 +44,8 @@ class Controller_Demo_Douban extends Controller {
 		
 		$apis = array(
 			'people', 'book', 'movie', 'music', 'broadcast',
-			'doumail', 'collection', 'review', 'recommendation'
+			'doumail', 'collection', 'review', 'recommendation',
+			'album'
 			);
 		
 		$output = '<h1>豆瓣 API 演示用例</h1><p>';

@@ -9,9 +9,9 @@
  * collection	(http://api.douban.com/collection/{id})
  *
  * @package		douban
- * @author		icyleaf
+ * @author		icyleaf <icyleaf.cn@gmail.com>
  * @link 		http://icyleaf.com
- * @copyright	(c) 2009 icyleaf <icyleaf.cn@gmail.com>
+ * @copyright	(c) 2009-2010 icyleaf
  * @license		http://www.apache.org/licenses/LICENSE-2.0
  */
 class Douban_API_Movie extends Douban_Core {
@@ -84,9 +84,9 @@ class Douban_API_Movie extends Douban_Core {
 			$result = new stdClass;
 			$result->title = $movie['title']['$t'];
 			// search
-			$result->index = $movie['opensearch:startIndex']['$t'];
-			$result->max = $movie['opensearch:itemsPerPage']['$t'];
-			$result->total = $movie['opensearch:totalResults']['$t'];
+			$result->index = $movie['openSearch:startIndex']['$t'];
+			$result->max = $movie['openSearch:itemsPerPage']['$t'];
+			$result->total = $movie['openSearch:totalResults']['$t'];
 			if ($result->total > 0)
 			{
 				// tags
@@ -229,9 +229,9 @@ class Douban_API_Movie extends Douban_Core {
 			$result = new stdClass;
 			$result->title = $movies['title']['$t'];
 			// search
-			$result->index = $movies['opensearch:startIndex']['$t'];
-			$result->max = $movies['opensearch:itemsPerPage']['$t'];
-			$result->total = $movies['opensearch:totalResults']['$t'];		
+			$result->index = $movies['openSearch:startIndex']['$t'];
+			$result->max = $movies['openSearch:itemsPerPage']['$t'];
+			$result->total = $movies['openSearch:totalResults']['$t'];
 			if ($result->total > 0)
 			{
 				// musics
