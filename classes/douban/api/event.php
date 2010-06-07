@@ -25,7 +25,7 @@ class Douban_API_Event extends Douban_Core {
 		);
 		$result = $this->_client->get($url, $post_data);
 
-		if ($this->alt == 'json' AND Douban_API_Event::format AND $result->status() == 200)
+		if ($this->alt == 'json' AND $this->format AND $result->status() == 200)
 		{
 			$result = Douban_API_Event::format($result->to_json());
 		}
@@ -95,7 +95,7 @@ class Douban_API_Event extends Douban_Core {
 		);
 		$result = $this->_client->get($url, $post_data);
 
-		if ($this->alt == 'json' AND Douban_API_Event::format AND $result->status() == 200)
+		if ($this->alt == 'json' AND $this->format AND $result->status() == 200)
 		{
 			$result = Douban_API_People::get_peoples($result->to_json());
 		}
@@ -123,17 +123,12 @@ class Douban_API_Event extends Douban_Core {
 		
 		$result = $this->_client->get($url, $post_data);
 
-		if ($this->alt == 'json' AND Douban_API_Event::format AND $result->status() == 200)
+		if ($this->alt == 'json' AND $this->format AND $result->status() == 200)
 		{
 			$result = Douban_API_People::get_peoples($result->to_json());
 		}
 		
 		return $result;
-	}
-
-	public function album($album_id)
-	{
-//		http://api.douban.com/album/27752561
 	}
 	
 	/**
@@ -147,7 +142,7 @@ class Douban_API_Event extends Douban_Core {
 		$url = Douban_Core::EVENT_URL.$event_id.'/participants';
 		$result = $this->_client->post($url);
 		
-		if (Douban_API_Event::format)
+		if ($this->format)
 		{
 			if ($result->status() == 201)
 			{
@@ -175,7 +170,7 @@ class Douban_API_Event extends Douban_Core {
 		$url = Douban_Core::EVENT_URL.$event_id.'/wishers';
 		$result = $this->_client->post($url);
 
-		if (Douban_API_Event::format)
+		if ($this->format)
 		{
 			if ($result->status() == 201)
 			{
@@ -206,7 +201,7 @@ class Douban_API_Event extends Douban_Core {
 			$url = Douban_Core::EVENT_URL.$event_id.'/'.$status;
 			$result = $this->_client->delete($url);
 	
-			if (Douban_API_Event::format)
+			if ($this->format)
 			{
 				if ($result->status() == 200)
 				{
@@ -316,7 +311,7 @@ class Douban_API_Event extends Douban_Core {
 			'</entry>';
 		$result = $this->_client->post($url, $post_data, $header);
 		
-		if (Douban_API_Event::format)
+		if ($this->format)
 		{
 			if ($result->status() == 201)
 			{
@@ -381,7 +376,7 @@ class Douban_API_Event extends Douban_Core {
 			'</entry>';
 		$result = $this->_client->put($url, $post_data, $header);
 
-		if (Douban_API_Event::format)
+		if ($this->format)
 		{
 			if ($result->status() == 200)
 			{
@@ -416,7 +411,7 @@ class Douban_API_Event extends Douban_Core {
 			'</entry>';
 		$result = $this->_client->delete($url, $post_data, $header);
 		
-		if (Douban_API_Event::format)
+		if ($this->format)
 		{
 			if ($result->status() == 200)
 			{
@@ -444,7 +439,7 @@ class Douban_API_Event extends Douban_Core {
 	{
 		$result = $this->_client->get($url, $post_data);
 		
-		if ($this->alt == 'json' AND Douban_API_Event::format AND $result->status() == 200)
+		if ($this->alt == 'json' AND $this->format AND $result->status() == 200)
 		{
 			$events = $result->to_json();
 			$result = new stdClass;
@@ -479,7 +474,6 @@ class Douban_API_Event extends Douban_Core {
 	 */
 	public static function format($event)
 	{
-		echo Kohana::debug($event);
 		$result = new stdClass;
 		// id
 		if (isset($event['id']))
