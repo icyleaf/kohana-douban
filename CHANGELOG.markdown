@@ -5,6 +5,12 @@
  > [E] Edited
  > [F] Bugfixed
 
+## 1.1
+
+[F] Always throw 'undefined "opensearch:xxx' exception
+
+[A] Added Alubm API (it founded in attribute of event api)
+
 ## 1.0.3
 
 [A] GEO for Event information
