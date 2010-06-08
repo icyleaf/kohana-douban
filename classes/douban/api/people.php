@@ -173,16 +173,37 @@ class Douban_API_People extends Douban_Core {
 		{
 			if (isset($people['uri'][0]))
 			{
-				$result->id = substr($people['uri'][0]['$t'], strlen(Douban_Core::PEOPLE_URL));
+				if (strpos($people['uri'][0]['$t'], Douban_Core::PEOPLE_URL) !== FALSE)
+				{
+					$people_url = Douban_Core::PEOPLE_URL;
+					$result->type = 'people';
+				}
+				else
+				{
+					$people_url = Douban_Core::HOST_URL;
+					$result->type = 'host';
+				}
+				$result->id = substr($people['uri'][0]['$t'], strlen($people_url));
 			}
 			else
 			{
-				$result->id = substr($people['uri']['$t'], strlen(Douban_Core::PEOPLE_URL));
+				if (strpos($people['uri']['$t'], Douban_Core::PEOPLE_URL) !== FALSE)
+				{
+					$people_url = Douban_Core::PEOPLE_URL;
+					$result->type = 'people';
+				}
+				else
+				{
+					$people_url = Douban_Core::HOST_URL;
+					$result->type = 'host';
+				}
+				$result->id = substr($people['uri']['$t'], strlen($people_url));
 			}
 			
 		}
 		elseif (isset($people['id']))
 		{
+			$result->type = 'people';
 			$result->id = substr($people['id']['$t'], strlen(Douban_Core::PEOPLE_URL));
 		}
 		// name

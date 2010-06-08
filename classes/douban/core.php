@@ -11,7 +11,7 @@
 class Douban_Core {
 	
 	// Release version
-	const VERSION 						= '1.0.3';
+	const VERSION 						= '1.1.1';
 	
 	// Douban OAuth URL
 	const SERVER_URL    				= 'http://api.douban.com/';
@@ -32,6 +32,7 @@ class Douban_Core {
 	const REVIEW_URL					= 'http://api.douban.com/review/';
 	const RECOMMENDATION_URL			= 'http://api.douban.com/recommendation/';
 	const ALBUM_URL						= 'http://api.douban.com/album/';
+	const HOST_URL	 					= 'http://api.douban.com/host/';
 	// Douban Category URL
 	const CATEGORY_URL					= 'http://www.douban.com/2007#';
 	// The Default Image URL

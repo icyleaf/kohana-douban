@@ -28,6 +28,11 @@ Douban API Package 是一个使用 PHP 开发且基于 Kohana v3 开发的一个
 * Review - 获取条目评论信息（书影音），获取用户评论信息，发布评论，更新评论，删除评论
 * Album - 获取相册信息（目前只能获取同城活动的相册，偶然在 Event 的 API 字段中发现此接口）
 
+## 已发现 API （受限）
+
+* Host - `http://api.douban.com/host/{id}` 访问会提示 `access page limit`.
+
+
 ## 安装需求
 
 * PHP 5.2+ with curl module
