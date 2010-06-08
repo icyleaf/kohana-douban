@@ -132,12 +132,12 @@ class Douban_API_Event extends Douban_Core {
 	}
 	
 	/**
-	 * Participant a event
+	 * Participate a event
 	 *
 	 * @param int $event_id 
 	 * @return mixed
 	 */
-	public function participant($event_id)
+	public function participate($event_id)
 	{
 		$url = Douban_Core::EVENT_URL.$event_id.'/participants';
 		$result = $this->_client->post($url);
@@ -160,12 +160,12 @@ class Douban_API_Event extends Douban_Core {
 	}
 	
 	/**
-	 * Wisher a event
+	 * Wish a event
 	 *
 	 * @param int $event_id 
 	 * @return mixed
 	 */
-	public function wisher($event_id)
+	public function wish($event_id)
 	{
 		$url = Douban_Core::EVENT_URL.$event_id.'/wishers';
 		$result = $this->_client->post($url);
