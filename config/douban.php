@@ -21,6 +21,6 @@ return array(
 	'session_key'	=> array(
 		'oauth_token'	=> 'oauth_token',					// Saved access token
 		'oauth_user'	=> 'oauth_user',					// Saved current user
-		),					
+		),
 );
 

@@ -201,13 +201,13 @@ class Douban_API_Book extends Douban_Core {
 		if ($this->alt == 'json' AND $this->format AND $result->status() == 200)
 		{
 			$books = $result->to_json();
-			
+
 			$result = new stdClass;
 			$result->title = $books['title']['$t'];
 			// search
-			$result->index = $books['openSearch:startIndex']['$t'];
-			$result->max = $books['openSearch:itemsPerPage']['$t'];
-			$result->total = $books['openSearch:totalResults']['$t'];
+			$result->index = $books['opensearch:startIndex']['$t'];
+			$result->max = $books['opensearch:itemsPerPage']['$t'];
+			$result->total = $books['opensearch:totalResults']['$t'];
 			if ($result->total > 0)
 			{
 				// books

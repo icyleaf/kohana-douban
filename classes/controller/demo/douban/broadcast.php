@@ -101,7 +101,7 @@ class Controller_Demo_Douban_Broadcast extends Controller {
 		}
 		else
 		{
-			echo html::anchor('douban_demo/verity_oauth', 'OAuth 验证');
+			echo html::anchor('demo_douban/verity_oauth', 'OAuth 验证');
 		}
 	}
 	
@@ -113,7 +113,7 @@ class Controller_Demo_Douban_Broadcast extends Controller {
 		}
 		else
 		{
-			echo html::anchor('douban_demo/verity_oauth', 'OAuth 验证');
+			echo html::anchor('demo_douban/verity_oauth', 'OAuth 验证');
 		}
 	}
 	
@@ -150,7 +150,7 @@ class Controller_Demo_Douban_Broadcast extends Controller {
 		}
 		else
 		{
-			echo html::anchor('douban_demo/verity_oauth', 'OAuth 验证');
+			echo html::anchor('demo_douban/verity_oauth', 'OAuth 验证');
 		}
 	}
 	
@@ -180,7 +180,7 @@ class Controller_Demo_Douban_Broadcast extends Controller {
 		}
 		else
 		{
-			echo html::anchor('douban_demo/verity_oauth', 'OAuth 验证');
+			echo html::anchor('demo_douban/verity_oauth', 'OAuth 验证');
 		}
 	}
 	
@@ -215,7 +215,7 @@ class Controller_Demo_Douban_Broadcast extends Controller {
 		}
 		else
 		{
-			echo html::anchor('douban_demo/verity_oauth', 'OAuth 验证');
+			echo html::anchor('demo_douban/verity_oauth', 'OAuth 验证');
 		}
 	}
 	

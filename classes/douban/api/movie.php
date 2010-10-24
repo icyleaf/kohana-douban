@@ -225,13 +225,13 @@ class Douban_API_Movie extends Douban_Core {
 		if ($this->alt == 'json' AND $this->format AND $result->status() == 200)
 		{
 			$movies = $result->to_json();
-            
+
 			$result = new stdClass;
 			$result->title = $movies['title']['$t'];
 			// search
-			$result->index = $movies['openSearch:startIndex']['$t'];
-			$result->max = $movies['openSearch:itemsPerPage']['$t'];
-			$result->total = $movies['openSearch:totalResults']['$t'];
+			$result->index = $movies['opensearch:startIndex']['$t'];
+			$result->max = $movies['opensearch:itemsPerPage']['$t'];
+			$result->total = $movies['opensearch:totalResults']['$t'];
 			if ($result->total > 0)
 			{
 				// musics

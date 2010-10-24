@@ -85,7 +85,7 @@ class Controller_Demo_Douban extends Controller {
 	 */
 	public function action_verity_oauth()
 	{
-		$callback_url = url::site('douban_demo/check');
+		$callback_url = url::site('demo_douban/check');
 		if ($auth_url = $this->_douban->verify($callback_url))
 		{
 			$this->request->redirect($auth_url);
@@ -107,7 +107,7 @@ class Controller_Demo_Douban extends Controller {
 			
 			if ($result)
 			{
-				$this->request->redirect('douban_demo');
+				$this->request->redirect('demo_douban');
 			}
 		}
 	}
@@ -120,7 +120,7 @@ class Controller_Demo_Douban extends Controller {
 		}
 		else
 		{
-			echo html::anchor('douban_demo/verity_oauth', 'OAuth 验证');
+			echo html::anchor('demo_douban/verity_oauth', 'OAuth 验证');
 		}
 	}
 	
@@ -133,7 +133,7 @@ class Controller_Demo_Douban extends Controller {
 		}
 		else
 		{
-			echo html::anchor('douban_demo/verity_oauth', 'OAuth 验证');
+			echo html::anchor('demo_douban/verity_oauth', 'OAuth 验证');
 		}
 	}
 	
@@ -145,7 +145,7 @@ class Controller_Demo_Douban extends Controller {
 		}
 		else
 		{
-			echo html::anchor('douban_demo/verity_oauth', 'OAuth 验证');
+			echo html::anchor('demo_douban/verity_oauth', 'OAuth 验证');
 		}
 	}
 	
@@ -157,7 +157,7 @@ class Controller_Demo_Douban extends Controller {
 		}
 		else
 		{
-			echo html::anchor('douban_demo/verity_oauth', 'OAuth 验证');
+			echo html::anchor('demo_douban/verity_oauth', 'OAuth 验证');
 		}
 	}
 	
@@ -169,7 +169,7 @@ class Controller_Demo_Douban extends Controller {
 		}
 		else
 		{
-			echo html::anchor('douban_demo/verity_oauth', 'OAuth 验证');
+			echo html::anchor('demo_douban/verity_oauth', 'OAuth 验证');
 		}
 	}
 	
@@ -181,7 +181,7 @@ class Controller_Demo_Douban extends Controller {
 		}
 		else
 		{
-			echo html::anchor('douban_demo/verity_oauth', 'OAuth 验证');
+			echo html::anchor('demo_douban/verity_oauth', 'OAuth 验证');
 		}
 	}
 	
@@ -193,7 +193,7 @@ class Controller_Demo_Douban extends Controller {
 		}
 		else
 		{
-			echo html::anchor('douban_demo/verity_oauth', 'OAuth 验证');
+			echo html::anchor('demo_douban/verity_oauth', 'OAuth 验证');
 		}
 	}
 	
@@ -205,7 +205,7 @@ class Controller_Demo_Douban extends Controller {
 		}
 		else
 		{
-			echo html::anchor('douban_demo/verity_oauth', 'OAuth 验证');
+			echo html::anchor('demo_douban/verity_oauth', 'OAuth 验证');
 		}
 	}		
 	

@@ -5,6 +5,12 @@
  > [E] Edited
  > [F] Bugfixed
 
+## 1.1.1
+
+[F] Always throw 'undefined "opensearch:xxx' exception for book/music
+
+[F] Fixed broken uri of douban demo
+
 ## 1.1
 
 [F] Always throw 'undefined "opensearch:xxx' exception
@@ -38,3 +44,4 @@
 [F] Fixed sometime the author attritube is not exist
 
 [F] Updated typo code
+
