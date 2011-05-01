@@ -42,7 +42,7 @@ Douban API Package 是一个使用 PHP 开发且基于 Kohana v3 开发的一个
 
 步骤 0: 部署 Kohana v3
 
-下载并安装 Kohana v3 的过程，请大家参考此教程：[使用 Git 部署 Kohana 系统](http://kohanaphp.cn/guide/tutorials.git)
+下载并安装 Kohana v3 的过程，请大家参考此教程：[使用 Git 部署 Kohana 系统](http://kohanaframework.org/3.0/guide/kohana/tutorials/git)
 
 步骤 1: 下载本扩展!
 
