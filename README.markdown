@@ -106,6 +106,9 @@ Douban API Package 是一个使用 PHP 开发且基于 Kohana v3 开发的一个
 
 ## 祝你开发顺利！
 
-如果任何疑问或者 Bugs 反馈，即可以在本项目中提交 Issue 或者给我发邮件：`icyleaf.cn@gmail.com`
+如果任何疑问或者 Bugs 反馈，即可以在本项目中提交 Issue。
 
-12/4/2011
+Twitter: @icyleaf
+新浪微博: @icyleaf
+
+12/04/2011
