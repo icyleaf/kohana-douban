@@ -37,3 +37,17 @@ Route::set('douban/demo', 'douban_demo(/<action>(/<id>))', array(
 		'controller' 	=> 'demo',
 		'action'		=> 'index',
 	));
+
+
+/**
+ * Remap media folder
+ */
+Route::set('media', 'media(/<file>)', array(
+		'file' 	=> '.+'
+	))
+	->defaults(array(
+        'directory'		=> 'douban',
+		'controller'	=> 'console',
+		'action'		=> 'media',
+		'file'		 	=> NULL,
+	));
