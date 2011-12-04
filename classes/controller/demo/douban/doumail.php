@@ -123,7 +123,7 @@ class Controller_Demo_Douban_Doumail extends Controller {
 			{
 				foreach ($_POST as $key => $value)
 				{
-					if ($_POST[$key] == NULL OR $_POST[$key] == '')
+					if (empty($_POST[$key]))
 					{
 						echo '['.$key.'] 不能为空！';
 						return;
@@ -146,7 +146,10 @@ class Controller_Demo_Douban_Doumail extends Controller {
 					return;
 				}
 			}
-			echo Debug::dump($result);
+
+            if (isset($result))
+			    echo Debug::dump($result);
+
 			echo '<h1>发送豆邮</h1>';
 			echo '<form method="post">people id:<br />';
 			echo '<input type="text" name="people_id" style="width: 300px"><br />';

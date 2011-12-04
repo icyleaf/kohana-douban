@@ -145,7 +145,7 @@ class Douban_API_Doumail extends Douban_Core {
 			$captcha.
 			'</entry>';	
 		$result = $this->_client->post($url, $post_data, $header);
-		
+
 		if ($this->format)
 		{
 			if ($result->status() == 201)
