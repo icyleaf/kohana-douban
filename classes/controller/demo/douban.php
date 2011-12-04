@@ -211,7 +211,7 @@ class Controller_Demo_Douban extends Controller {
 	
 	public function action_logged_in()
 	{
-		$status = 'Status: ';
+		$status = '状态: ';
 		if ($this->_douban->logged_in())
 		{
 			$status .= '已经登录';
@@ -221,14 +221,14 @@ class Controller_Demo_Douban extends Controller {
 			$status .= '没有登录';
 		}
 		
-		$this->request->response = $status;
+        $this->response->body($status);
 	}
 	
 	public function action_loggout()
 	{
 		$this->_douban->logout();
 		
-		$this->request->response = '成功退出';
+        $this->response->body('成功退出');
 	}
 
 }
