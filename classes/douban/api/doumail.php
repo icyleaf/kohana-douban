@@ -247,7 +247,7 @@ class Douban_API_Doumail extends Douban_Core {
 	 */
 	private function _format($doumail)
 	{
-        //echo Kohana::debug($doumail);
+        //echo Debug::dump($doumail);
 		$result = new stdClass;
 		// id
 		$result->id = substr($doumail['id']['$t'], strlen(Douban_Core::DOUMAIL_URL));

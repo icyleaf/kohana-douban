@@ -1,4 +1,4 @@
-# Douban API Package Module
+# Douban API Package Module (ONLY for Kohana v3.2)
 
 Douban API Package 是一个使用 PHP 开发且基于 Kohana v3 开发的一个扩展（Module）。
 
@@ -40,9 +40,9 @@ Douban API Package 是一个使用 PHP 开发且基于 Kohana v3 开发的一个
 
 ## 安装步骤
 
-步骤 0: 部署 Kohana v3
+步骤 0: 部署 Kohana
 
-下载并安装 Kohana v3 的过程，请大家参考此教程：[使用 Git 部署 Kohana 系统](http://kohanaframework.org/3.0/guide/kohana/tutorials/git)
+下载并安装 Kohana 的过程，请大家参考此教程：[使用 Git 部署 Kohana 系统](http://kohanaframework.org/3.2/guide/kohana/tutorials/git)
 
 步骤 1: 下载本扩展!
 
@@ -108,4 +108,4 @@ Douban API Package 是一个使用 PHP 开发且基于 Kohana v3 开发的一个
 
 如果任何疑问或者 Bugs 反馈，即可以在本项目中提交 Issue 或者给我发邮件：`icyleaf.cn@gmail.com`
 
-01/07/2009
+12/4/2011

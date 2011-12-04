@@ -9,7 +9,7 @@ class Controller_Demo_Douban_Collection extends Controller {
 	
 	public function before()
 	{
-		$this->_config = Kohana::config('douban');
+		$this->_config = Kohana::$config->load('douban');
 		if ($this->_config->api_key AND $this->_config->api_secret)
 		{
 			$this->_douban = Douban::instance();
@@ -20,7 +20,7 @@ class Controller_Demo_Douban_Collection extends Controller {
 		}
 		
 		// base url
-		$this->_base = $this->request->uri;
+		$this->_base = $this->request->uri();
 		// Douban collection class
 		$this->_collection = $this->_douban->collection();
 	}
@@ -62,7 +62,7 @@ class Controller_Demo_Douban_Collection extends Controller {
 		}
 		$output .= '</ol>';
 		// render
-		$this->request->response = $output;
+		$this->response->body($output);
 	}
 	
 	public function action_collection_information()
@@ -75,7 +75,7 @@ class Controller_Demo_Douban_Collection extends Controller {
 		else
 		{
 			$id = trim($_GET['id']);
-			echo Kohana::debug($this->_collection->get($id));
+			echo Debug::dump($this->_collection->get($id));
 		}
 	}
 	
@@ -89,7 +89,7 @@ class Controller_Demo_Douban_Collection extends Controller {
 		else
 		{
 			$id = trim($_GET['id']);
-			echo Kohana::debug($this->_collection->get_by_people($id));
+			echo Debug::dump($this->_collection->get_by_people($id));
 		}
 	}
 	
@@ -155,7 +155,7 @@ class Controller_Demo_Douban_Collection extends Controller {
 				}
 				else
 				{
-					echo Kohana::debug($this->_collection->errors());
+					echo Debug::dump($this->_collection->errors());
 				}
 			}
 		}
@@ -184,7 +184,7 @@ class Controller_Demo_Douban_Collection extends Controller {
 				else
 				{
 					echo '删除失败: ';
-					echo Kohana::debug($this->_collection->errors());
+					echo Debug::dump($this->_collection->errors());
 				}
 			}
 		}

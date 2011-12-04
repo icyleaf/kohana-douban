@@ -5,6 +5,10 @@
  > [E] Edited
  > [F] Bugfixed
 
+## 2.0
+
+[E] ONLY support Kohana v3.2.x
+
 ## 1.1.1
 
 [F] Always throw 'undefined "opensearch:xxx' exception for book/music

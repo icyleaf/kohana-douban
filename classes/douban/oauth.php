@@ -40,7 +40,7 @@ class Douban_OAuth {
 		
 		$this->key = $key;
 		$this->secret = $secret;
-		$this->_config = Kohana::config('douban');
+		$this->_config = Kohana::$config->load('douban');
 	}
 	
 	/**

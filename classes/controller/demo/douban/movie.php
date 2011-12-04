@@ -8,7 +8,7 @@ class Controller_Demo_Douban_Movie extends Controller {
 	
 	public function before()
 	{
-		$this->_config = Kohana::config('douban');
+		$this->_config = Kohana::$config->load('douban');
 		if ($this->_config->api_key AND $this->_config->api_secret)
 		{
 			$this->_douban = Douban::instance();
@@ -19,7 +19,7 @@ class Controller_Demo_Douban_Movie extends Controller {
 		}
 		
 		// base url
-		$this->_base = $this->request->uri;
+		$this->_base = $this->request->uri();
 	}
 	
 	public function action_index()
@@ -59,7 +59,7 @@ class Controller_Demo_Douban_Movie extends Controller {
 		}
 		$output .= '</ol>';
 		// render
-		$this->request->response = $output;
+		$this->response->body($output);
 	}
 	
 	public function action_movie_information()
@@ -72,7 +72,7 @@ class Controller_Demo_Douban_Movie extends Controller {
 		else
 		{
 			$id = trim($_GET['id']);
-			echo Kohana::debug($this->_douban->movie()->get($id));
+			echo Debug::dump($this->_douban->movie()->get($id));
 		}
 	}
 	
@@ -86,7 +86,7 @@ class Controller_Demo_Douban_Movie extends Controller {
 		else
 		{
 			$id = trim($_GET['id']);
-			echo Kohana::debug($this->_douban->movie()->tags($id));
+			echo Debug::dump($this->_douban->movie()->tags($id));
 		}
 	}
 		
@@ -100,7 +100,7 @@ class Controller_Demo_Douban_Movie extends Controller {
 		else
 		{
 			$isbn = trim($_GET['isbn']);
-			echo Kohana::debug($this->_douban->movie()->imdb($isbn));
+			echo Debug::dump($this->_douban->movie()->imdb($isbn));
 		}
 	}
 		
@@ -114,7 +114,7 @@ class Controller_Demo_Douban_Movie extends Controller {
 		else
 		{
 			$query = trim($_GET['query']);
-			echo Kohana::debug($this->_douban->movie()->search($query));
+			echo Debug::dump($this->_douban->movie()->search($query));
 		}
 	}
 	

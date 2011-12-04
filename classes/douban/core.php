@@ -11,7 +11,7 @@
 class Douban_Core {
 	
 	// Release version
-	const VERSION 						= '1.1.1';
+	const VERSION 						= '2.0';
 	
 	// Douban OAuth URL
 	const SERVER_URL    				= 'http://api.douban.com/';
@@ -75,8 +75,9 @@ class Douban_Core {
 	 */
 	public function __construct($api_key = NULL, $api_secret = NULL)
 	{
-		$api_key = empty($api_key) ? Kohana::config('douban.api_key') : $api_key;
-		$api_secret = empty($api_secret) ? Kohana::config('douban.api_secret') : $api_secret;
+        $this->_config = Kohana::$config->load('douban');
+        $api_key = empty($api_key) ? $this->_config->api_key : $api_key;
+		$api_secret = empty($api_secret) ? $this->_config->api_secret : $api_secret;
 		
 		if ($api_key AND $api_secret)
 		{
@@ -84,7 +85,6 @@ class Douban_Core {
 			$this->_method = $this->_client->sign_method('HMAC_SHA1');
 			
 			$this->session = Session::instance();
-			$this->_config = Kohana::config('douban');
 		}
 		else
 		{

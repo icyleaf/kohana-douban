@@ -9,7 +9,7 @@ class Controller_Demo_Douban_Doumail extends Controller {
 	
 	public function before()
 	{
-		$this->_config = Kohana::config('douban');
+		$this->_config = Kohana::$config->load('douban');
 		if ($this->_config->api_key AND $this->_config->api_secret)
 		{
 			$this->_douban = Douban::instance();
@@ -20,7 +20,7 @@ class Controller_Demo_Douban_Doumail extends Controller {
 		}
 		
 		// base url
-		$this->_base = $this->request->uri;
+		$this->_base = $this->request->uri();
 		// Douban doumail class
 		$this->_doumail = $this->_douban->doumail();
 	}
@@ -62,7 +62,7 @@ class Controller_Demo_Douban_Doumail extends Controller {
 		}
 		$output .= '</ol>';
 		// render
-		$this->request->response = $output;
+		$this->response->body($output);
 	}
 	
 	public function action_doumail_information()
@@ -75,7 +75,7 @@ class Controller_Demo_Douban_Doumail extends Controller {
 		else
 		{
 			$id = trim($_GET['id']);
-			echo Kohana::debug($this->_doumail->get($id));
+			echo Debug::dump($this->_doumail->get($id));
 		}
 	}
 	
@@ -83,7 +83,7 @@ class Controller_Demo_Douban_Doumail extends Controller {
 	{
 		if ($this->_douban->logged_in())
 		{
-			echo Kohana::debug($this->_doumail->get_unread());
+			echo Debug::dump($this->_doumail->get_unread());
 		}
 		else
 		{
@@ -95,7 +95,7 @@ class Controller_Demo_Douban_Doumail extends Controller {
 	{
 		if ($this->_douban->logged_in())
 		{
-			echo Kohana::debug($this->_doumail->get_inbox());
+			echo Debug::dump($this->_doumail->get_inbox());
 		}
 		else
 		{
@@ -107,7 +107,7 @@ class Controller_Demo_Douban_Doumail extends Controller {
 	{
 		if ($this->_douban->logged_in())
 		{
-			echo Kohana::debug($this->_doumail->get_outbox());
+			echo Debug::dump($this->_doumail->get_outbox());
 		}
 		else
 		{
@@ -142,11 +142,11 @@ class Controller_Demo_Douban_Doumail extends Controller {
 				else
 				{
 					echo '发送失败:';
-					echo Kohana::debug($this->_doumail->errors());
+					echo Debug::dump($this->_doumail->errors());
 					return;
 				}
 			}
-			echo Kohana::debug($result);
+			echo Debug::dump($result);
 			echo '<h1>发送豆邮</h1>';
 			echo '<form method="post">people id:<br />';
 			echo '<input type="text" name="people_id" style="width: 300px"><br />';
@@ -190,7 +190,7 @@ class Controller_Demo_Douban_Doumail extends Controller {
 				else
 				{
 					echo '删除失败：';
-					echo Kohana::debug($this->_doumail->errors());
+					echo Debug::dump($this->_doumail->errors());
 				}
 			}
 		}

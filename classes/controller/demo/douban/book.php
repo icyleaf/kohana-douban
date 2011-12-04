@@ -8,7 +8,7 @@ class Controller_Demo_Douban_Book extends Controller {
 	
 	public function before()
 	{
-		$this->_config = Kohana::config('douban');
+		$this->_config = Kohana::$config->load('douban');
 		if ($this->_config->api_key AND $this->_config->api_secret)
 		{
 			$this->_douban = Douban::instance();
@@ -19,7 +19,7 @@ class Controller_Demo_Douban_Book extends Controller {
 		}
 		
 		// base url
-		$this->_base = $this->request->uri;
+		$this->_base = $this->request->uri();
 	}
 	
 	public function action_index()
@@ -59,7 +59,7 @@ class Controller_Demo_Douban_Book extends Controller {
 		}
 		$output .= '</ol>';
 		// render
-		$this->request->response = $output;
+		$this->response->body($output);
 	}
 	
 	public function action_book_information()
@@ -73,7 +73,7 @@ class Controller_Demo_Douban_Book extends Controller {
 		{
 			$id = trim($_GET['id']);
 			
-			echo Kohana::debug($this->_douban->book()->get($id));
+			echo Debug::dump($this->_douban->book()->get($id));
 		}
 	}
 	
@@ -87,7 +87,7 @@ class Controller_Demo_Douban_Book extends Controller {
 		else
 		{
 			$id = trim($_GET['id']);
-			echo Kohana::debug($this->_douban->book()->tags($id));
+			echo Debug::dump($this->_douban->book()->tags($id));
 		}
 	}
 		
@@ -101,7 +101,7 @@ class Controller_Demo_Douban_Book extends Controller {
 		else
 		{
 			$isbn = trim($_GET['isbn']);
-			echo Kohana::debug($this->_douban->book()->isbn($isbn));
+			echo Debug::dump($this->_douban->book()->isbn($isbn));
 		}
 	}
 		
@@ -115,7 +115,7 @@ class Controller_Demo_Douban_Book extends Controller {
 		else
 		{
 			$query = trim($_GET['query']);
-			echo Kohana::debug($this->_douban->book()->search($query));
+			echo Debug::dump($this->_douban->book()->search($query));
 		}
 	}
 	

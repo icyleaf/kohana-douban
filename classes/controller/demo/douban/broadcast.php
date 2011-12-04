@@ -9,7 +9,7 @@ class Controller_Demo_Douban_Broadcast extends Controller {
 	
 	public function before()
 	{
-		$this->_config = Kohana::config('douban');
+		$this->_config = Kohana::$config->load('douban');
 		if ($this->_config->api_key AND $this->_config->api_secret)
 		{
 			$this->_douban = Douban::instance();
@@ -20,7 +20,7 @@ class Controller_Demo_Douban_Broadcast extends Controller {
 		}
 		
 		// base url
-		$this->_base = $this->request->uri;
+		$this->_base = $this->request->uri();
 		// Douban broadcast class
 		$this->_broadcast = $this->_douban->broadcast();
 	}
@@ -62,7 +62,7 @@ class Controller_Demo_Douban_Broadcast extends Controller {
 		}
 		$output .= '</ol>';
 		// render
-		$this->request->response = $output;
+		$this->response->body($output);
 	}
 	
 	public function action_broadcast_information()
@@ -75,7 +75,7 @@ class Controller_Demo_Douban_Broadcast extends Controller {
 		else
 		{
 			$id = trim($_GET['id']);
-			echo Kohana::debug($this->_broadcast->get($id));
+			echo Debug::dump($this->_broadcast->get($id));
 		}
 	}
 	
@@ -89,7 +89,7 @@ class Controller_Demo_Douban_Broadcast extends Controller {
 		else
 		{
 			$id = trim($_GET['id']);
-			echo Kohana::debug($this->_broadcast->get_comments($id));
+			echo Debug::dump($this->_broadcast->get_comments($id));
 		}
 	}
 	
@@ -97,7 +97,7 @@ class Controller_Demo_Douban_Broadcast extends Controller {
 	{
 		if ($this->_douban->logged_in())
 		{
-			echo Kohana::debug($this->_broadcast->get_mine());
+			echo Debug::dump($this->_broadcast->get_mine());
 		}
 		else
 		{
@@ -109,7 +109,7 @@ class Controller_Demo_Douban_Broadcast extends Controller {
 	{
 		if ($this->_douban->logged_in())
 		{
-			echo Kohana::debug($this->_broadcast->get_contacts());
+			echo Debug::dump($this->_broadcast->get_contacts());
 		}
 		else
 		{
@@ -144,7 +144,7 @@ class Controller_Demo_Douban_Broadcast extends Controller {
 				}
 				else
 				{
-					echo Kohana::debug($this->_broadcast->errors());
+					echo Debug::dump($this->_broadcast->errors());
 				}
 			}
 		}
@@ -174,7 +174,7 @@ class Controller_Demo_Douban_Broadcast extends Controller {
 				else
 				{
 					echo '删除失败：';
-					echo Kohana::debug($this->_broadcast->errors());
+					echo Debug::dump($this->_broadcast->errors());
 				}
 			}
 		}
@@ -209,7 +209,7 @@ class Controller_Demo_Douban_Broadcast extends Controller {
 				else
 				{
 					echo '回应失败：';
-					echo Kohana::debug($this->_broadcast->errors());
+					echo Debug::dump($this->_broadcast->errors());
 				}
 			}
 		}

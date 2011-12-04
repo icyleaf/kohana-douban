@@ -9,7 +9,7 @@ class Controller_Demo_Douban_Recommendation extends Controller {
 	
 	public function before()
 	{
-		$this->_config = Kohana::config('douban');
+		$this->_config = Kohana::$config->load('douban');
 		if ($this->_config->api_key AND $this->_config->api_secret)
 		{
 			$this->_douban = Douban::instance();
@@ -20,7 +20,7 @@ class Controller_Demo_Douban_Recommendation extends Controller {
 		}
 		
 		// base url
-		$this->_base = $this->request->uri;
+		$this->_base = $this->request->uri();
 		// Douban recommendation class
 		$this->_recommendation = $this->_douban->recommendation();
 	}
@@ -62,7 +62,7 @@ class Controller_Demo_Douban_Recommendation extends Controller {
 		}
 		$output .= '</ol>';
 		// render
-		$this->request->response = $output;
+		$this->response->body($output);
 	}
 	
 	public function action_recommendation_information()
@@ -75,7 +75,7 @@ class Controller_Demo_Douban_Recommendation extends Controller {
 		else
 		{
 			$id = trim($_GET['id']);
-			echo Kohana::debug($this->_recommendation->get($id));
+			echo Debug::dump($this->_recommendation->get($id));
 		}
 	}
 	
@@ -89,7 +89,7 @@ class Controller_Demo_Douban_Recommendation extends Controller {
 		else
 		{
 			$id = trim($_GET['id']);
-			echo Kohana::debug($this->_recommendation->get_by_people($id));
+			echo Debug::dump($this->_recommendation->get_by_people($id));
 		}
 	}
 	
@@ -103,7 +103,7 @@ class Controller_Demo_Douban_Recommendation extends Controller {
 		else
 		{
 			$id = trim($_GET['id']);
-			echo Kohana::debug($this->_recommendation->get_comments($id));
+			echo Debug::dump($this->_recommendation->get_comments($id));
 		}
 	}
 	
@@ -148,7 +148,7 @@ class Controller_Demo_Douban_Recommendation extends Controller {
 				}
 				else
 				{
-					echo Kohana::debug($this->_recommendation->errors());
+					echo Debug::dump($this->_recommendation->errors());
 				}
 			}
 		}
@@ -178,7 +178,7 @@ class Controller_Demo_Douban_Recommendation extends Controller {
 				else
 				{
 					echo '删除失败：';
-					echo Kohana::debug($this->_recommendation->errors());
+					echo Debug::dump($this->_recommendation->errors());
 				}
 			}
 		}
@@ -213,7 +213,7 @@ class Controller_Demo_Douban_Recommendation extends Controller {
 				}
 				else
 				{
-					echo Kohana::debug($this->_recommendation->errors());
+					echo Debug::dump($this->_recommendation->errors());
 				}
 			}
 		}
@@ -243,7 +243,7 @@ class Controller_Demo_Douban_Recommendation extends Controller {
 				else
 				{
 					echo 'Delete failed: ';
-					echo Kohana::debug($this->_recommendation->errors());
+					echo Debug::dump($this->_recommendation->errors());
 				}
 			}
 		}

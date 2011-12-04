@@ -8,7 +8,7 @@ class Controller_Demo_Douban_People extends Controller {
 	
 	public function before()
 	{
-		$this->_config = Kohana::config('douban');
+		$this->_config = Kohana::$config->load('douban');
 		if ($this->_config->api_key AND $this->_config->api_secret)
 		{
 			$this->_douban = Douban::instance();
@@ -19,7 +19,7 @@ class Controller_Demo_Douban_People extends Controller {
 		}
 		
 		// base url
-		$this->_base = $this->request->uri;
+		$this->_base = $this->request->uri();
 	}
 	
 	public function action_index()
@@ -59,14 +59,14 @@ class Controller_Demo_Douban_People extends Controller {
 		}
 		$output .= '</ol>';
 		// render
-		$this->request->response = $output;
+		$this->response->body($output);
 	}
 	
 	public function action_my_profile()
 	{
 		if ($this->_douban->logged_in())
 		{
-			echo Kohana::debug($this->_douban->people()->get('me'));
+			echo Debug::dump($this->_douban->people()->get('me'));
 		}
 		else
 		{
@@ -78,7 +78,7 @@ class Controller_Demo_Douban_People extends Controller {
 	{
 		if ($this->_douban->logged_in())
 		{
-			echo Kohana::debug($this->_douban->people()->get_friends('me'));
+			echo Debug::dump($this->_douban->people()->get_friends('me'));
 		}
 		else
 		{
@@ -90,7 +90,7 @@ class Controller_Demo_Douban_People extends Controller {
 	{
 		if ($this->_douban->logged_in())
 		{
-			echo Kohana::debug($this->_douban->people()->get_contacts('me'));
+			echo Debug::dump($this->_douban->people()->get_contacts('me'));
 		}
 		else
 		{
@@ -108,7 +108,7 @@ class Controller_Demo_Douban_People extends Controller {
 		else
 		{
 			$id = trim($_GET['id']);
-			echo Kohana::debug($this->_douban->people()->get($id));
+			echo Debug::dump($this->_douban->people()->get($id));
 		}
 	}
 	
@@ -122,7 +122,7 @@ class Controller_Demo_Douban_People extends Controller {
 		else
 		{
 			$query = trim($_GET['query']);
-			echo Kohana::debug($this->_douban->people()->search($query));
+			echo Debug::dump($this->_douban->people()->search($query));
 		}
 	}
 	

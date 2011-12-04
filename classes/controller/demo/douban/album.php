@@ -8,7 +8,7 @@ class Controller_Demo_Douban_Album extends Controller {
 	
 	public function before()
 	{
-		$this->_config = Kohana::config('douban');
+		$this->_config = Kohana::$config->load('douban');
 		if ($this->_config->api_key AND $this->_config->api_secret)
 		{
 			$this->_douban = Douban::instance();
@@ -19,7 +19,7 @@ class Controller_Demo_Douban_Album extends Controller {
 		}
 		
 		// base url
-		$this->_base = $this->request->uri;
+		$this->_base = $this->request->uri();
 	}
 	
 	public function action_index()
@@ -59,7 +59,7 @@ class Controller_Demo_Douban_Album extends Controller {
 		}
 		$output .= '</ol>';
 		// render
-		$this->request->response = $output;
+		$this->response->body($output);
 	}
 	
 	public function action_album_information()
@@ -73,7 +73,7 @@ class Controller_Demo_Douban_Album extends Controller {
 		{
 			$id = trim($_GET['id']);
 			
-			echo Kohana::debug($this->_douban->album()->get($id));
+			echo Debug::dump($this->_douban->album()->get($id));
 		}
 	}
 	

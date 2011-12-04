@@ -9,7 +9,7 @@ class Controller_Demo_Douban_Review extends Controller {
 	
 	public function before()
 	{
-		$this->_config = Kohana::config('douban');
+		$this->_config = Kohana::$config->load('douban');
 		if ($this->_config->api_key AND $this->_config->api_secret)
 		{
 			$this->_douban = Douban::instance();
@@ -20,7 +20,7 @@ class Controller_Demo_Douban_Review extends Controller {
 		}
 		
 		// base url
-		$this->_base = $this->request->uri;
+		$this->_base = $this->request->uri();
 		// Douban Review class
 		$this->_review = $this->_douban->review();
 	}
@@ -62,7 +62,7 @@ class Controller_Demo_Douban_Review extends Controller {
 		}
 		$output .= '</ol>';
 		// render
-		$this->request->response = $output;
+		$this->response->body($output);
 	}
 	
 	public function action_review_information()
@@ -75,7 +75,7 @@ class Controller_Demo_Douban_Review extends Controller {
 		else
 		{
 			$id = trim($_GET['id']);
-			echo Kohana::debug($this->_review->get($id));
+			echo Debug::dump($this->_review->get($id));
 		}
 	}
 	
@@ -89,7 +89,7 @@ class Controller_Demo_Douban_Review extends Controller {
 		else
 		{
 			$id = trim($_GET['id']);
-			echo Kohana::debug($this->_review->get_by_people($id));
+			echo Debug::dump($this->_review->get_by_people($id));
 		}
 	}
 		
@@ -103,7 +103,7 @@ class Controller_Demo_Douban_Review extends Controller {
 		else
 		{
 			$id = trim($_GET['id']);
-			echo Kohana::debug($this->_review->get_by_book($id));
+			echo Debug::dump($this->_review->get_by_book($id));
 		}
 	}
 	
@@ -117,7 +117,7 @@ class Controller_Demo_Douban_Review extends Controller {
 		else
 		{
 			$id = trim($_GET['id']);
-			echo Kohana::debug($this->_review->get_by_movie($id));
+			echo Debug::dump($this->_review->get_by_movie($id));
 		}
 	}
 	
@@ -131,7 +131,7 @@ class Controller_Demo_Douban_Review extends Controller {
 		else
 		{
 			$id = trim($_GET['id']);
-			echo Kohana::debug($this->_review->get_by_music($id));
+			echo Debug::dump($this->_review->get_by_music($id));
 		}
 	}
 	
@@ -145,7 +145,7 @@ class Controller_Demo_Douban_Review extends Controller {
 		else
 		{
 			$ibsn = trim($_GET['ibsn']);
-			echo Kohana::debug($this->_review->get_by_isbn($ibsn));
+			echo Debug::dump($this->_review->get_by_isbn($ibsn));
 		}
 	}
 	
@@ -159,7 +159,7 @@ class Controller_Demo_Douban_Review extends Controller {
 		else
 		{
 			$imdb = trim($_GET['imdb']);
-			echo Kohana::debug($this->_review->get_by_imdb($imdb));
+			echo Debug::dump($this->_review->get_by_imdb($imdb));
 		}
 	}
 	
@@ -202,7 +202,7 @@ class Controller_Demo_Douban_Review extends Controller {
 				}
 				else
 				{
-					echo Kohana::debug($this->_review->errors());
+					echo Debug::dump($this->_review->errors());
 				}
 			}
 		}
@@ -232,7 +232,7 @@ class Controller_Demo_Douban_Review extends Controller {
 				else
 				{
 					echo '删除失败';
-					echo Kohana::debug($this->_review->errors());
+					echo Debug::dump($this->_review->errors());
 				}
 			}
 		}

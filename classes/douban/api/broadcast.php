@@ -240,7 +240,7 @@ class Douban_API_Broadcast extends Douban_Core {
 	 */
 	private function _format_broadcast($broadcast)
 	{
-//		echo Kohana::debug($broadcast);
+//		echo Debug::dump($broadcast);
 		$result = new stdClass;
 		// id
 		$result->id = substr($broadcast['id']['$t'], strlen(Douban_Core::MINIBLOG_URL));

@@ -2,7 +2,7 @@
 /**
  * Douban API configuration
  *
- * http://www.douban.com/service/apidoc/
+ * @link http://www.douban.com/service/apidoc/
  */
 return array(
 	/**
@@ -11,8 +11,8 @@ return array(
 	 * @param api_key		API Key
 	 * @param api_secret	API Secret
 	 */
-	'api_key'		=> '',
-	'api_secret'	=> '',
+	'api_key'		=> '0816a2ebb89b35331843e8c329d19f99',
+	'api_secret'	=> 'a0e0012eeda56b40',
 	
 	/**
 	 * Configuration

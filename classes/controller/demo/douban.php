@@ -8,7 +8,7 @@ class Controller_Demo_Douban extends Controller {
 	
 	public function before()
 	{
-		$this->_config = Kohana::config('douban');
+		$this->_config = Kohana::$config->load('douban');
 		if ($this->_config->api_key AND $this->_config->api_secret)
 		{
 			$this->_douban = Douban::instance();
@@ -19,13 +19,13 @@ class Controller_Demo_Douban extends Controller {
 		}
 		
 		// base url
-		$this->_base = $this->request->uri;
+		$this->_base = $this->request->uri();
 	}
 	
 	/**
 	 * Douban Entry
 	 *
-	 * http://www.douban.com/service/apidoc/
+	 * @link http://www.douban.com/service/apidoc/
 	 */
 	public function action_index()
 	{
@@ -56,7 +56,7 @@ class Controller_Demo_Douban extends Controller {
 		}
 		else
 		{
-			$output .= '你好，请在执行下面操作前通过豆瓣 OAuth 的'.html('demo_douban/verity_oauth', '验证');
+			$output .= '你好，请在执行下面操作前通过豆瓣 OAuth 的'.HTML::anchor('demo_douban/verity_oauth', '验证');
 		}
 		$output .= '</p><hr /><ol>';
 		while ($methods->valid())
@@ -65,7 +65,7 @@ class Controller_Demo_Douban extends Controller {
 			if ( ! in_array($action, $ignore))
 			{
 				$action = str_replace('action_', '', $action);
-				$output .= '<li>'.html::anchor($this->_base.'/'.$action, $action).'</li>';
+				$output .= '<li>'.HTML::anchor($this->_base.'/'.$action, $action).'</li>';
 			}
 			$methods->next();
 		}
@@ -73,11 +73,11 @@ class Controller_Demo_Douban extends Controller {
 		$output .= '<hr /><h2>其他API</h2><ol>';
 		foreach ($apis as $api)
 		{
-			$output .= '<li>'.html::anchor('demo_douban_'.$api, $api).'</li>';
+			$output .= '<li>'.HTML::anchor('demo_douban_'.$api, $api).'</li>';
 		}
 		$output .= '</ol>';
 		// render
-		$this->request->response = $output;
+        $this->response->body($output);
 	}
 	
 	/**
@@ -92,7 +92,7 @@ class Controller_Demo_Douban extends Controller {
 		}
 		else
 		{
-			echo Kohana::debug($this->_douban->errors());
+			echo Debug::dump($this->_douban->errors());
 		}
 	}
 	
@@ -116,11 +116,11 @@ class Controller_Demo_Douban extends Controller {
 	{
 		if ($this->_douban->logged_in())
 		{
-			echo Kohana::debug($this->_douban->people()->get('me'));
+			echo Debug::dump($this->_douban->people()->get('me'));
 		}
 		else
 		{
-			echo html::anchor('demo_douban/verity_oauth', 'OAuth 验证');
+			echo HTML::anchor('demo_douban/verity_oauth', 'OAuth 验证');
 		}
 	}
 	
@@ -129,11 +129,11 @@ class Controller_Demo_Douban extends Controller {
 	{
 		if ($this->_douban->logged_in())
 		{
-			echo Kohana::debug($this->_douban->people()->get_friends('me'));
+			echo Debug::dump($this->_douban->people()->get_friends('me'));
 		}
 		else
 		{
-			echo html::anchor('demo_douban/verity_oauth', 'OAuth 验证');
+			echo HTML::anchor('demo_douban/verity_oauth', 'OAuth 验证');
 		}
 	}
 	
@@ -141,11 +141,11 @@ class Controller_Demo_Douban extends Controller {
 	{
 		if ($this->_douban->logged_in())
 		{
-			echo Kohana::debug($this->_douban->people()->get_contacts('me'));
+			echo Debug::dump($this->_douban->people()->get_contacts('me'));
 		}
 		else
 		{
-			echo html::anchor('demo_douban/verity_oauth', 'OAuth 验证');
+			echo HTML::anchor('demo_douban/verity_oauth', 'OAuth 验证');
 		}
 	}
 	
@@ -153,11 +153,11 @@ class Controller_Demo_Douban extends Controller {
 	{
 		if ($this->_douban->logged_in())
 		{
-			echo Kohana::debug($this->_douban->broadcast()->get_mine('me'));
+			echo Debug::dump($this->_douban->broadcast()->get_mine('me'));
 		}
 		else
 		{
-			echo html::anchor('demo_douban/verity_oauth', 'OAuth 验证');
+			echo HTML::anchor('demo_douban/verity_oauth', 'OAuth 验证');
 		}
 	}
 	
@@ -165,11 +165,11 @@ class Controller_Demo_Douban extends Controller {
 	{
 		if ($this->_douban->logged_in())
 		{
-			echo Kohana::debug($this->_douban->note()->get_by_people('me'));
+			echo Debug::dump($this->_douban->note()->get_by_people('me'));
 		}
 		else
 		{
-			echo html::anchor('demo_douban/verity_oauth', 'OAuth 验证');
+			echo HTML::anchor('demo_douban/verity_oauth', 'OAuth 验证');
 		}
 	}
 	
@@ -177,11 +177,11 @@ class Controller_Demo_Douban extends Controller {
 	{
 		if ($this->_douban->logged_in())
 		{
-			echo Kohana::debug($this->_douban->collection()->get_by_people('me'));
+			echo Debug::dump($this->_douban->collection()->get_by_people('me'));
 		}
 		else
 		{
-			echo html::anchor('demo_douban/verity_oauth', 'OAuth 验证');
+			echo HTML::anchor('demo_douban/verity_oauth', 'OAuth 验证');
 		}
 	}
 	
@@ -189,11 +189,11 @@ class Controller_Demo_Douban extends Controller {
 	{
 		if ($this->_douban->logged_in())
 		{
-			echo Kohana::debug($this->_douban->recommendation()->get_by_people('me'));
+			echo Debug::dump($this->_douban->recommendation()->get_by_people('me'));
 		}
 		else
 		{
-			echo html::anchor('demo_douban/verity_oauth', 'OAuth 验证');
+			echo HTML::anchor('demo_douban/verity_oauth', 'OAuth 验证');
 		}
 	}
 	
@@ -201,11 +201,11 @@ class Controller_Demo_Douban extends Controller {
 	{
 		if ($this->_douban->logged_in())
 		{
-			echo Kohana::debug($this->_douban->review()->get_by_people('me'));
+			echo Debug::dump($this->_douban->review()->get_by_people('me'));
 		}
 		else
 		{
-			echo html::anchor('demo_douban/verity_oauth', 'OAuth 验证');
+			echo HTML::anchor('demo_douban/verity_oauth', 'OAuth 验证');
 		}
 	}		
 	
