@@ -1,0 +1,152 @@
+/*    HTTP Host:  b.static.ak.fbcdn.net                                        */
+/*    Generated:  June 9th 2009 9:30:25 AM PDT                                 */
+/*      Machine:  10.16.140.105                                                */
+/*       Source:  Global Cache                                                 */
+/*     Location:  css/ie6.css h:8ylg4nn7                                       */
+/*       Locale:  en_US                                                        */
+/*         Path:  css/ie6.css                                                  */
+
+
+.inputbutton,
+.inputsubmit{width:1;overflow:visible;padding:2px 15px;}
+#tabs{margin-top:22px }
+#announce p{word-wrap:break-word }
+#suggest div{cursor:hand }
+.fb_menu_dropdown{width:200px;}
+#group.profile .related{word-wrap:break-word;}
+#pagefooter li{white-space:nowrap;}
+.profile .account_info{position:relative;width:388px;margin-left:-231px;}
+.obj_media_header .media_gray_bg,
+.media_header .media_gray_bg{position:relative;}
+.highlight, .inserted{line-height:17px;}
+.composer_fields label{padding-top:7px;}
+#compose_message .inputsubmit{padding-left:15px;padding-right:15px;}
+.message .share_media.photo .photo_thumb img,
+.message .share_media.share_ext_photo .share_thumb img{width:360px;}
+.inbox #megaboxx .subject_wrap .subject_text{display:inline-block;}
+.dropdown-container{margin-left:1px;}
+#goodFrame{position:absolute;z-index:0;border:0px;filter:progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=0);}
+.ubersearch .uber_bar #label_q{}
+.ubersearch .uber_bar #n_dropdown{margin-top:2px;}
+.filters legend{cursor:hand }
+.ubersearch .filters fieldset legend{margin:-5px -10px 0px -7px;padding-bottom:4px;width:133px }
+.filters #label_c2, .filters #label_c1{display:block;}
+.ubersearch .filters .checkbox{padding-bottom:0px;}
+.ubersearch .filters .checkbox input{margin:0px;}
+.ubersearch .filters .checkbox label{margin:0px;}
+.ubersearch #filters_sx label{padding:0px }
+.ubersearch #filters_sx .filter_controls{padding-bottom:2px }
+.mailbox .dropdown-container{margin-top:1px;margin-left:2px;}
+.profile .discussions .board_topic{width:368px }
+.profile .profileTable .data .datawrap{overflow:hidden }
+.grouplist .infotable .datawrap{display:block;width:300px }
+#groupslist .info{width:420px }
+.confirmed .people_table td{width:56px }
+.confirmed .people_table table td.name div{width:54px }
+.guestlist .people_table td{width:60px }
+.guestlist .people_table table td.name div{width:58px }
+.editaccount .action_box .buttons input{width:140px }
+.editaccount .settings_panel .email_option{padding-bottom:0px;}
+.editaccount #email .buttons{margin-top:0px;margin-left:0px;padding-left:20px;}
+.subrow td table td{border-left:2px solid;border-top:3px solid;}
+.editor_panel .subrow td table td{border-left:2px solid #f7f7f7;border-top:3px solid #f7f7f7;}
+.subrow td table td input{margin-top:1px }
+.school select{margin-bottom:1px }
+.highschool select{margin-top:2px }
+.editprofile .noneditable_value{width:170px }
+.editprofile .editor_actions{float:left;padding-left:5px;}
+.set{padding-left:1px;}
+#create_note{padding-left:0;margin-left:1px;}
+.editnote .side_column{margin:0 0 0 8px;}
+#blog_url_field .inputtext{width:285px;}
+.side_column #tag_this_note .inputtext{margin:0px;width:141px;}
+.editnote .main_column{width:408px;}
+.editnote #upload_iframe{height:48px;}
+.home #home_main{display:inline;}
+.sidebar_item_header .option{margin-top:5px;}
+.confirminvite .inputsubmit,
+.confirminvite .inputbutton{padding:1px 3px;}
+.invite .left #summaryandpager h4{height:16px;}
+.minifeed{padding-top:0;}
+.minifeed .photobox{padding-bottom:1px;}
+.minifeedwall .wall_story .story_table{width:400px;}
+.wallattachment{width:376px;}
+.wall_gift{text-align:right;}
+.my_sharebox .share_header .share_and_hide{width:7.0em;}
+.share_media .external .video_thumb a img.decoy{display:none;}
+.share_media .external .video_thumb a span.thumb{position:relative;}
+.share_media .external .video_thumb a span.thumb img{visibility:hidden;}
+.share_media .external .video_thumb a span.play{background-image:url(/images/video_play_overlay.gif);display:none;position:relative;}
+.share_pop_dialog .status h2{padding-top:1px;padding-bottom:1px;}
+.notifications .submission small{line-height:12px;}
+.notification_checkboxes{margin-top:-8px;}
+.notifications label{display:inline-block;}
+.help_column img{margin-top:0px;}
+.help_column .highlight img{margin-top:0px;}
+.explanation .square_bullets{margin-left:0;}
+.feedback .mixer_panel .saved_notification{display:inline-block;}
+.feedback .mixer_panel .left_buttons, .feedback .mixer_panel .right_buttons{margin-top:1px;}
+.feedback .mixer_panel .mixer_bar{margin-top:5px;margin-bottom:1px;}
+.vslider{padding-bottom:19px;}
+.listing #header{padding-bottom:10px;}
+.video_dashboard #video_banner{border-left:0px;border-right:0px;margin:0px;}
+.video_upload_page .separators{position:relative;margin-bottom:-1.1em;}
+.video_upload_page .separators a{display:inline-block;}
+.editor.showrows .hiddenrow{display:block;}
+.products .side_column{float:right;width:156px;}
+.products .app_browser li a,
+.products .app_browser li.app_type a{margin-left:1px;}
+.products .app_browser li.selected a{margin-left:0;border-left:1px solid #fff;}
+.products .app_browser li a{height:1px;}
+#inline_wall_post dd{margin-left:4px;}
+.attachment_compact .wall_video_thumb .play .wrap{padding-bottom:2px;}
+.wallpost .attached_item_info{height:19px;}
+.wall_attachment .share_media .share_thumb img{width:100px;}
+.wall_attachment .share_media.photo .fb_photo .photo_thumb img,
+.wall_attachment .share_media.share_ext_photo .share_thumb img{width:316px;}
+.attachment_stage{height:50px;}
+#fb_multi_friend_selector #friends .square{position:static;}
+#fb_multi_friend_selector #friends .square span{position:static;}
+#fb_multi_friend_selector #fs_filter_links a{display:block;float:left;}
+#fb_multi_friend_selector .navigator_menu{position:absolute;top:32px;margin-right:-10px;}
+#fb_multi_friend_selector .cols_squeeze .navigator_menu{top:30px;}
+#fb_multi_friend_selector #fs_limit_by_list_menu{margin-right:4px;}
+#fb_multi_friend_selector .navigator_menu ul{height:220px;width:140px;}
+#fb_multi_friend_selector .cols_squeeze #fs_filter_links{position:static;}
+.num_cols_2 #fb_multi_friend_selector_wrapper .buttons{clear:both;}
+.num_cols_2 #fb_multi_friend_selector_wrapper #finder .hide{left:320px;top:44px;}
+.num_cols_3 #fb_multi_friend_selector_wrapper #finder .hide{top:44px;}
+.editor #start_calendar, .editor #end_calendar{margin-top:18px;margin-left:-35px;}
+.calendar .month_title span{margin-left:-80px;}
+#fb_multi_friend_selector #fs_limit_by_network_menu{right:22px;}
+.num_cols_2 #fb_multi_friend_selector_wrapper .buttons{clear:both;}
+.req_confirmation #req_msg_add{padding-top:6px;}
+.req_confirmation .req_recipients .token span{display:inline;}
+.req_confirmation .req_preview{height:150px;}
+input.request_form_submit{background:#3B5998 url(/images/icons/request_button_icon.gif) no-repeat 8px 5px;padding:3px 6px 3px 30px;}
+.targeting_table td{padding:2px 1px;}
+.dev_app_infos{margin:0 -1px -1px 0;}
+.dev_app_list li.selected .border_hack{z-index:100;height:100%;padding:6px 0;background-color:#3b5998;width:1px;display:block;right:-1px;top:0;position:absolute;border:0;margin:0;text-indent:-9999px;}
+.privacy_widget .advanced .body .friends .advanced_friends_radio_item .radio_left{padding-left:0px;padding-top:0px;padding-left:3px;margin-top:-2px;}
+.privacy_widget .privacy_profile_advanced .checks label{padding-left:2px;}
+#profilenarrowcolumn .box_subhead{margin-right:1px;overflow:hidden;width:184px;}
+.fbpage_profile #profilenarrowcolumn .box_subhead{margin:auto;overflow:visible;width:auto;}
+.profile .right_column_container .profile_sidebar_ads{margin-right:0px;}
+#no_profile_picture #profileimage img{width:180px;}
+#presence #presence_preload{position:absolute;}
+.presence_popout #presence #buddy_list ul{padding-left:1px;}
+#buddy_list .compact ul li{margin-top:-2px;}
+.presence_popout #buddy_list ul li.subheader{margin-top:-8px;}
+.presence_popout #presence #chat_tab_bar .chat_shadow_input{position:absolute;}
+.presence_popout #presence #chat_tab_bar .chat_window .chat_conv p{margin-left:52px;padding-left:0px;}
+#presence .emote_text,
+#presence .emote_img{margin-bottom:-3px;}
+.transparent_png{background-image:none;display:inline;zoom:1;}
+.invisible_png{visibility:hidden;}
+html #nonfooter{height:100%;}
+.profile_pic_suggest_top_buttons{padding:0 0 0px 0;}
+.profile_pic_suggest_top_buttons .toggle_tabs{position:relative;top:1px;}
+.UIActionMenu_Menu{width:160px;}
+
+
+#bootloader_css_ie6_css { height: 42px; }

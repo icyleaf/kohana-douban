@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Controller_Demo_Douban_Music extends Controller {
+class Controller_Douban_Demo_Movie extends Controller {
 	
 	private $_base 		= NULL;
 	private $_config 	= NULL;
@@ -36,7 +36,7 @@ class Controller_Demo_Douban_Music extends Controller {
 			'after'
 		);
 		
-		$output = '<h1>Douban Music Demo</h1><p>';
+		$output = '<h1>Douban Movie Demo</h1><p>';
 		if ($people = $this->_douban->get_user())
 		{
 			$output .= '你好，'.$people->name.'。你已经通过 OAuth 验证，你可以尝试下面操作：';
@@ -62,45 +62,59 @@ class Controller_Demo_Douban_Music extends Controller {
 		$this->response->body($output);
 	}
 	
-	public function action_music_information()
+	public function action_movie_information()
 	{
 		if ( ! $_GET)
 		{
-			echo '通过 music id 获得音乐信息：(比如，"3040149")<br/><br/>';
+			echo '通过 movie id 获得电影信息：(比如，"1652587")<br/><br/>';
 			echo '<form method="get"><input type="text" name="id"><input type="submit"/></form>';
 		}
 		else
 		{
 			$id = trim($_GET['id']);
-			echo Debug::dump($this->_douban->music()->get($id));
+			echo Debug::dump($this->_douban->movie()->get($id));
 		}
 	}
 	
-	public function action_music_tags()
+	public function action_movie_tags()
 	{
 		if ( ! $_GET)
 		{
-			echo '通过 music id 获得音乐标签：(比如，"3040149")<br/><br/>';
+			echo '通过 movie id 获取电影标签：(比如，"1652587")<br/><br/>';
 			echo '<form method="get"><input type="text" name="id"><input type="submit"/></form>';
 		}
 		else
 		{
 			$id = trim($_GET['id']);
-			echo Debug::dump($this->_douban->music()->tags($id));
+			echo Debug::dump($this->_douban->movie()->tags($id));
 		}
 	}
 		
-	public function action_search_music()
+	public function action_movie_information_by_imdb()
 	{
 		if ( ! $_GET)
 		{
-			echo '搜索音乐：(比如，"Viva La Vida")<br/><br/>';
+			echo '通过  IMDB 获取电影信息：(比如，"tt0499549")<br/><br/>';
+			echo '<form method="get"><input type="text" name="isbn"><input type="submit"/></form>';
+		}
+		else
+		{
+			$isbn = trim($_GET['isbn']);
+			echo Debug::dump($this->_douban->movie()->imdb($isbn));
+		}
+	}
+		
+	public function action_search_movie()
+	{
+		if ( ! $_GET)
+		{
+			echo '搜索电影：(比如， "avatar")<br/><br/>';
 			echo '<form method="get"><input type="text" name="query"><input type="submit"/></form>';
 		}
 		else
 		{
 			$query = trim($_GET['query']);
-			echo Debug::dump($this->_douban->music()->search($query));
+			echo Debug::dump($this->_douban->movie()->search($query));
 		}
 	}
 	

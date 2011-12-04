@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Controller_Demo_Douban_Recommendation extends Controller {
+class Controller_Douban_Demo_Recommendation extends Controller {
 	
 	private $_base 		= NULL;
 	private $_config 	= NULL;

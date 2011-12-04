@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Controller_Demo_Douban_Book extends Controller {
+class Controller_Douban_Demo_Music extends Controller {
 	
 	private $_base 		= NULL;
 	private $_config 	= NULL;
@@ -36,7 +36,7 @@ class Controller_Demo_Douban_Book extends Controller {
 			'after'
 		);
 		
-		$output = '<h1>Douban Book Demo</h1><p>';
+		$output = '<h1>Douban Music Demo</h1><p>';
 		if ($people = $this->_douban->get_user())
 		{
 			$output .= '你好，'.$people->name.'。你已经通过 OAuth 验证，你可以尝试下面操作：';
@@ -62,60 +62,45 @@ class Controller_Demo_Douban_Book extends Controller {
 		$this->response->body($output);
 	}
 	
-	public function action_book_information()
+	public function action_music_information()
 	{
 		if ( ! $_GET)
 		{
-			echo '通过 book id 获得图书信息：（比如，"1082387"）<br />';
+			echo '通过 music id 获得音乐信息：(比如，"3040149")<br/><br/>';
 			echo '<form method="get"><input type="text" name="id"><input type="submit"/></form>';
 		}
 		else
 		{
 			$id = trim($_GET['id']);
-			
-			echo Debug::dump($this->_douban->book()->get($id));
+			echo Debug::dump($this->_douban->music()->get($id));
 		}
 	}
 	
-	public function action_book_tags()
+	public function action_music_tags()
 	{
 		if ( ! $_GET)
 		{
-			echo '通过 book id 获得图书标签：（比如，"1082387"）<br />';
+			echo '通过 music id 获得音乐标签：(比如，"3040149")<br/><br/>';
 			echo '<form method="get"><input type="text" name="id"><input type="submit"/></form>';
 		}
 		else
 		{
 			$id = trim($_GET['id']);
-			echo Debug::dump($this->_douban->book()->tags($id));
+			echo Debug::dump($this->_douban->music()->tags($id));
 		}
 	}
 		
-	public function action_book_information_by_ibsn()
+	public function action_search_music()
 	{
 		if ( ! $_GET)
 		{
-			echo '通过 IBSN 获得图书信息：（比如，"9787532729357"）<br />';
-			echo '<form method="get"><input type="text" name="isbn"><input type="submit"/></form>';
-		}
-		else
-		{
-			$isbn = trim($_GET['isbn']);
-			echo Debug::dump($this->_douban->book()->isbn($isbn));
-		}
-	}
-		
-	public function action_search_book()
-	{
-		if ( ! $_GET)
-		{
-			echo '搜索图书：（比如，"1984"）<br />';
+			echo '搜索音乐：(比如，"Viva La Vida")<br/><br/>';
 			echo '<form method="get"><input type="text" name="query"><input type="submit"/></form>';
 		}
 		else
 		{
 			$query = trim($_GET['query']);
-			echo Debug::dump($this->_douban->book()->search($query));
+			echo Debug::dump($this->_douban->music()->search($query));
 		}
 	}
 	

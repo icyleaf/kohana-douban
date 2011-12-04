@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Controller_Demo_Douban extends Controller {
+class Controller_Douban_Demo extends Controller {
 	
 	protected $_base 		= NULL;
 	protected $_config 		= NULL;
@@ -56,7 +56,7 @@ class Controller_Demo_Douban extends Controller {
 		}
 		else
 		{
-			$output .= '你好，请在执行下面操作前通过豆瓣 OAuth 的'.HTML::anchor('demo_douban/verity_oauth', '验证');
+			$output .= '你好，请在执行下面操作前通过豆瓣 OAuth 的'.HTML::anchor('douban_demo/verity_oauth', '验证');
 		}
 		$output .= '</p><hr /><ol>';
 		while ($methods->valid())
@@ -73,7 +73,7 @@ class Controller_Demo_Douban extends Controller {
 		$output .= '<hr /><h2>其他API</h2><ol>';
 		foreach ($apis as $api)
 		{
-			$output .= '<li>'.HTML::anchor('demo_douban_'.$api, $api).'</li>';
+			$output .= '<li>'.HTML::anchor('douban_demo'.$api, $api).'</li>';
 		}
 		$output .= '</ol>';
 		// render

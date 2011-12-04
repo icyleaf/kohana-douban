@@ -1,0 +1,87 @@
+/*    HTTP Host:  static.ak.fbcdn.net                                          */
+/*    Generated:  June 15th 2009 9:09:16 PM PDT                                */
+/*      Machine:  10.16.140.110                                                */
+/*       Source:  Global Cache                                                 */
+/*     Location:  css/ie7.css h:qn4w7u7o                                       */
+/*       Locale:  en_US                                                        */
+/*         Path:  css/ie7.css                                                  */
+
+
+.inputbutton,
+.inputsubmit{width:1;overflow:visible;padding:2px 15px;}
+#profilenarrowcolumn{margin-right:9px!important;}
+.profile .right_column_container .profile_sidebar_ads{margin-right:0px;}
+.box_head{padding-bottom:0px;}
+.box_head h2{padding-bottom:0px;}
+#pagefooter li{white-space:nowrap;}
+.fb_menu_dropdown{width:200px;}
+.profile .account_info{margin:0px -21px 2px -229px;padding:17px 21px 8px 237px;}
+#profileActions a:hover .unselected .text{padding-top:2px;}
+.app_icon_row{position:static;}
+.editaccount .settings_panel .email_option{padding-bottom:0px;}
+.editaccount #email .buttons{margin-top:0px;margin-left:0px;padding-left:22px;}
+.dropdown-container{direction:ltr;margin-left:2px;margin-top:1px;z-index:1000 !important;}
+.ubersearch .filters fieldset legend{margin:-5px -10px 0px -7px;padding-bottom:4px;width:133px }
+.filters #label_c2, .filters #label_c1{display:block;}
+.composer_fields label{padding-top:7px;}
+#compose_message .inputsubmit{padding-left:15px;padding-right:15px;}
+.inbox #megaboxx .subject_wrap .subject_text{display:inline-block;}
+.notifications .submission small{line-height:12px;}
+.notification_checkboxes{margin-top:-8px;}
+.notifications label{display:inline-block;}
+.confirminvite .inputsubmit,
+.confirminvite .inputbutton{padding:1px 3px;}
+.invite .left #summaryandpager h4{height:16px;}
+.explanation .square_bullets{margin-left:0;}
+.feedback .mixer_panel .saved_notification{display:inline-block;}
+.feedback .mixer_panel .left_buttons, .feedback .mixer_panel .right_buttons{margin-top:1px;}
+.feedback .mixer_panel .mixer_bar{margin-top:5px;margin-bottom:1px;}
+.vslider{padding-bottom:19px;}
+#shareitems .share_and_hide{width:60px;}
+#shareitems .x_to_hide{float:right;}
+.share_pop_dialog .status h2{padding-top:1px;padding-bottom:1px;}
+.video_permalink #add_comment{padding-top:15px;}
+.video_upload_page .separators{position:relative;margin-bottom:-1.1em;}
+.video_upload_page .separators a{display:inline-block;}
+.editor.showrows .hiddenrow{display:block;}
+.products .side_column{float:right;width:156px;}
+.products .app_browser li a,
+.products .app_browser li.app_type a{margin-left:1px;}
+.products .app_browser li.selected a{margin-left:0;border-left:1px solid #fff;}
+#content .thewall{margin-bottom:15px;}
+#inline_wall_post dd{margin-left:4px;}
+.attachment_compact .wall_video_thumb .play{margin-top:-22px;padding-bottom:3px;}
+#fb_multi_friend_selector .navigator_menu ul{height:220px;width:140px;}
+#fb_multi_friend_selector #friends .square{position:static;}
+#fb_multi_friend_selector #friends .square span{position:static;}
+#fb_multi_friend_selector #fs_filter_links a{display:block;float:left;}
+#fb_multi_friend_selector .navigator_menu{top:32px;}
+#fb_multi_friend_selector .cols_squeeze .navigator_menu{top:30px;}
+#fb_multi_friend_selector #fs_limit_by_list_menu{right:96px;}
+.num_cols_2 #fb_multi_friend_selector_wrapper .buttons{clear:both;}
+.num_cols_2 #fb_multi_friend_selector_wrapper #finder .hide{left:320px;top:44px;}
+.num_cols_3 #fb_multi_friend_selector_wrapper #finder .hide{left:351px;top:44px;}
+.editor #start_calendar, .editor #end_calendar{margin-top:18px;margin-left:-35px;}
+.calendar .month_title span{margin-left:-80px;}
+#fb_multi_friend_selector #skip_top{margin-top:12px;margin-right:0px;}
+.req_confirmation #req_msg_add{padding-top:6px;}
+input.request_form_submit{background:#3B5998 url(/images/icons/request_button_icon.gif) no-repeat 8px 5px;padding:3px 6px 3px 30px;overflow:visible;}
+.targeting_table td{padding:2px 1px;}
+.minifeed .photobox{padding-bottom:1px;}
+.privacy_widget .advanced .body .friends .advanced_friends_radio_item .radio_left{padding-left:0px;padding-top:0px;padding-left:3px;margin-top:-2px;}
+.privacy_widget .privacy_profile_advanced .checks label{padding-left:2px;}
+#presence #chat_tab_bar .chat_window_wrapper{margin-left:-219px;}
+.presence_popout #presence #chat_tab_bar .chat_window_wrapper{margin-left:0px;}
+#presence #presence_bar_buttons .titletip strong{margin:0;}
+#buddy_list .compact ul li{margin-top:-2px;}
+#buddy_list ul li.subheader{margin-top:-6px;}
+.presence_popout #presence #chat_tab_bar .chat_window .chat_conv p{margin-left:52px;padding-left:0px;}
+.in_videochat #presence #chat_tab_bar .chat_window .chat_conv p{margin-left:7px;}
+#presence .emote_text,
+#presence .emote_img{margin-bottom:-3px;}
+.translations_admin #all_translations .show_all tr.hidden_elem{display:block;}
+.profile_pic_suggest_top_buttons{padding:0 0 0px 0;}
+.profile_pic_suggest_top_buttons .toggle_tabs{position:relative;top:1px;}
+
+
+#bootloader_css_ie7_css { height: 42px; }

@@ -1,0 +1,56 @@
+/*    HTTP Host:  static.ak.fbcdn.net                                          */
+/*    Generated:  June 25th 2009 4:19:59 PM PDT                                */
+/*      Machine:  10.16.139.101                                                */
+/*       Source:  Local Cache                                                  */
+/*     Location:  rsrc:4vfy9xj1:en_US:/html/css/8jlnn6i0f8kkks4k.pkg.css:141   */
+/*       Locale:  en_US                                                        */
+/*         Path:  css/8jlnn6i0f8kkks4k.pkg.css                                 */
+
+
+html{height:100%;}
+html.auto_resize_iframe{height:auto;}
+body{height:100%;}
+body.auto_resize_iframe{height:auto;}
+.use_scroll_wrapper #scroll_wrapper{width:100%;height:100%;overflow:auto;position:relative;}
+#nonfooter{padding:0px;margin:0px;min-height:100%;}
+#page_height{padding:0px 0px 100px 0px;margin:0px;}
+body{background:#fff;font-family:"lucida grande",tahoma,verdana,arial,sans-serif;font-size:11px;margin:0px;padding:0px;text-align:left;direction:ltr;unicode-bidi:embed;}
+h1, h2, h3, h4, h5{font-size:13px;color:#333;margin:0px;padding:0px;}
+h1{font-size:14px;}
+h4, h5{font-size:11px;}
+p{font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;text-align:left;}
+a{cursor:pointer;color:#3b5998;-moz-outline-style:none;text-decoration:none;}
+a:hover{text-decoration:underline;}
+img{border:0px;}
+select{border:1px solid #BDC7D8;font-family:"lucida grande",tahoma,verdana,arial,sans-serif;font-size:11px;padding:2px;}
+td,
+td.label{font-size:11px;text-align:left;}
+.wbr{display:block;float:left;}
+.standard_message{padding:10px;}
+.standard_message.no_padding{padding:0;}
+.standard_message.shorten{padding-bottom:0;}
+.standard_message.has_padding{padding:10px;}
+.standard_message .error,
+.standard_message .status,
+.standard_message .explanation_note{margin:0;}
+.error,
+.status,
+.explanation_note{margin:0 0px 10px 0px;padding:10px;border:solid 1px #dd3c10;background:#ffebe8;}
+.created{margin:0 20px 20px;}
+.error p,
+.status p,
+.explanation_note p{margin:4px 0px 0px;line-height:14px;font-weight:normal;}
+.error a,
+.status a,
+.explanation_note a{text-decoration:none;color:#dd3c10;}
+.status{border-color:#e2c822;background:#fff9d7;}
+.status a{color:#3b5998;text-decoration:none;}
+.page_top_notice{color:#444;border-bottom:solid 1px #e2c822;padding:5px 20px 4px;background:#fff9d7;}
+.explanation_note{border-color:#bdc7d8;background:#fff;}
+.explanation_note h1{font-size:11px;}
+.pipe{color:gray;padding:0px 3px;}
+.column{float:left;}
+.center{margin-left:auto;margin-right:auto;}
+.editor_title{background:#f7f7f7;padding-bottom:5px;}
+.page_title{border-bottom:1px solid #ccc;padding:10px 10px 5px;margin:0px 10px;}
+
