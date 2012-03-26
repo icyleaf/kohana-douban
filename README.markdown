@@ -99,10 +99,7 @@ Douban API Package 是一个使用 PHP 开发且基于 Kohana v3 开发的一个
 	
 ## 快速上手
 
-* Douban API Package 提供一些演示用例，系统部署完毕后可以通过 `http://host/demo_douban` 访问。 
-
-> 文件路径：`classes/controller/demo_douban.php`
-
+* Douban API Package 提供一些演示用例，系统部署完毕后可以通过 `http://host/douban_demo` 或者 `http://host/douban_console` 访问。 
 
 ## 祝你开发顺利！
 
@@ -111,4 +108,4 @@ Douban API Package 是一个使用 PHP 开发且基于 Kohana v3 开发的一个
 Twitter: @icyleaf
 新浪微博: @icyleaf
 
-12/04/2011
+03/26/2012
