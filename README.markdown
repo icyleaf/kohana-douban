@@ -2,14 +2,18 @@
 
 Douban API Package 是一个使用 PHP 开发且基于 Kohana v3 开发的一个扩展（Module）。
 
-它对[豆瓣](http://www.douban.com/) [API](http://www.douban.com/service/apidoc/) 进行重新封包。它使用起来非常方便，可以快速开发一个 web 应用。
+它对[豆瓣](http://www.douban.com/) [API](http://www.douban.com/service/apidoc/) 进行重新封包。
+它使用起来非常方便，可以快速开发一个 web 应用。
 
 ## 为什么要另外封包？
 
-对，豆瓣官方提供了一种 PHP 的解决方案，可是需要庞大的支持库：Zend GData（20M左右）以及可能无法修改的环境配置（租用的空间主机会遇到这样的问题）。虽说 Douban API Package 也是基于框架开发，不过 Kohana 是一个纯 PHP5 模式且体积小巧（仅有 478KB），优秀迅捷的框架。**最重要的是**，Douban API Package 提供了目前官方所有功能的支持。并有线上网站：[魔豆](http://modou.us/) 和[豆瓣 API 控制台](http://modou.us/console)长期运营。
+对，豆瓣官方提供了一种 PHP 的解决方案，可是需要庞大的支持库：
+Zend GData（20M左右）以及可能无法修改的环境配置（租用的空间主机会遇到这样的问题）。
+虽说 Douban API Package 也是基于框架开发，不过 Kohana 是一个纯 PHP5 模式且体积小巧，优秀迅捷的框架。
+**最重要的是**，Douban API Package 提供了目前官方所有功能的支持。
+并有线上网站：[豆瓣 API 控制台](http://ews.im/douban_console)长期运营。
 
-**虽然它是基于 Kohana 框架开发，但是并没有使用太多的依赖，稍微熟悉可以轻松分离出来！**
-
+ > 虽然它是基于 Kohana 框架开发，但是并没有使用太多框架的依赖，可在独立环境把报错地方替换从而轻松分离出来(通过邮件沟通得知成功案例)
 
 ## 支持 API 列表
 
@@ -105,7 +109,7 @@ Douban API Package 是一个使用 PHP 开发且基于 Kohana v3 开发的一个
 
 如果任何疑问或者 Bugs 反馈，即可以在本项目中提交 Issue。
 
-Twitter: @icyleaf
-新浪微博: @icyleaf
+* Twitter: @icyleaf
+* 新浪微博: @icyleaf
 
-03/26/2012
+04/22/2012
