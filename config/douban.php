@@ -19,8 +19,8 @@ return array(
 	 */
 	'lifetime'		=> 3600 * 30 * 30,						// Store for 30 days
 	'session_key'	=> array(
-		'oauth_token'	=> 'oauth_token',					// Saved access token
-		'oauth_user'	=> 'oauth_user',					// Saved current user
+		'oauth_token'	=> 'douban_oauth_token',		    // Saved access token
+		'oauth_user'	=> 'douban_oauth_token',            // Saved current user
 		),
 );
 

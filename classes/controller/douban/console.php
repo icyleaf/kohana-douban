@@ -14,6 +14,7 @@ class Controller_Douban_Console extends Controller_Template {
 	{
 		$this->_config = Kohana::$config->load('douban_console');
 		$this->session = Session::instance();
+
 		$this->douban = Douban::instance($this->_config->api_key, $this->_config->api_secret);
 		$people = $this->douban->get_user();
 		if ($people instanceof Douban_Response)

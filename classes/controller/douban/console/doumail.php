@@ -23,7 +23,7 @@ class Controller_Douban_Console_Doumail extends Controller_Douban_Console {
 
 	public function action_get()
 	{
-        $id = $this->request->param('id');
+        $id = Arr::get($_POST, 'id');
 		
 		$this->result = $this->doumail->get($id);
 	}
