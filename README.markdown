@@ -1,5 +1,7 @@
 # Douban API Package Module (ONLY for Kohana v3.2)
 
+> 项目**不再**维护开发。欢迎 PR，我会尽快合并发布新版本。
+
 Douban API Package 是一个使用 PHP 开发且基于 Kohana v3 开发的一个扩展（Module）。
 
 它对[豆瓣](http://www.douban.com/) [API](http://www.douban.com/service/apidoc/) 进行重新封包。
